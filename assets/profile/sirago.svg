@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="152" viewBox="0 0 640 152" role="img" aria-labelledby="title description">
+  <title id="title">SıraGo</title>
+  <desc id="description">Appointments and automation for service businesses. open for sign-up.</desc>
+  <style>
+    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    @media (prefers-color-scheme: light) {
+      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+    }
+    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
+    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
+    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
+    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
+    .ground { fill:#0B0D10; fill:var(--ground); }
+    .panel { fill:#14171C; fill:var(--panel); }
+    .muted { fill:#90969E; fill:var(--muted); }
+    .accent { fill:#C5F36D; fill:var(--accent); }
+    .low { fill:#344523; fill:var(--low); }
+    .mid { fill:#526E32; fill:var(--mid); }
+    .high { fill:#80A94B; fill:var(--high); }
+    .label { font-weight:600; letter-spacing:1px; }
+    .bold { font-weight:700; }
+
+  </style>
+  <rect class="ground" width="640" height="152"/>
+  <rect class="rule" x=".5" y=".5" width="639" height="151"/>
+
+    <rect x="400" y="1" width="239" height="150" class="panel"/>
+    <rect x="37" y="26" width="7" height="7" class="accent"/>
+    <text x="54" y="37" font-size="17" class="accent label">OPEN FOR SIGN-UP</text>
+    <text x="36" y="79" font-size="34" class="bold">SıraGo</text>
+    <text x="37" y="110" font-size="19" class="muted">Appointments and automation</text><text x="37" y="133" font-size="19" class="muted">for service businesses.</text>
+    <g aria-hidden="true" transform="translate(426 34)"><g stroke-width="1.4">
+        <path class="wire" d="M7 14H181M7 43H181M7 72H181M40 1V84M94 1V84M148 1V84"/>
+        <rect x="5" y="7" width="24" height="14" class="panel rule"/><rect x="50" y="7" width="24" height="14" class="panel rule"/><rect x="95" y="7" width="24" height="14" class="low signal"/><rect x="140" y="7" width="24" height="14" class="panel rule"/><rect x="5" y="36" width="24" height="14" class="panel rule"/><rect x="50" y="36" width="24" height="14" class="panel rule"/><rect x="95" y="36" width="24" height="14" class="panel rule"/><rect x="140" y="36" width="24" height="14" class="panel rule"/><rect x="5" y="65" width="24" height="14" class="low signal"/><rect x="50" y="65" width="24" height="14" class="panel rule"/><rect x="95" y="65" width="24" height="14" class="panel rule"/><rect x="140" y="65" width="24" height="14" class="panel rule"/>
+        <path class="signal" d="M104 13h6v-5m-6 64h6v-5"/>
+      </g></g>
+    <path class="signal" stroke-width="1.5" d="M610 28l12-12m-9 0h9v9"/>
+
+</svg>

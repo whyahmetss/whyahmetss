@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="259" viewBox="0 0 640 259" role="img" aria-labelledby="title description">
+  <title id="title">Development activity</title>
+  <desc id="description">339 publicly visible contributions over 12 completed weeks from Aug 30, 2026 – Nov 21, 2026. Weekly counts: 0, 0, 0, 1, 0, 106, 155, 24, 52, 0, 1, 0.</desc>
+  <style>
+    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    @media (prefers-color-scheme: light) {
+      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+    }
+    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
+    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
+    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
+    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
+    .ground { fill:#0B0D10; fill:var(--ground); }
+    .panel { fill:#14171C; fill:var(--panel); }
+    .muted { fill:#90969E; fill:var(--muted); }
+    .accent { fill:#C5F36D; fill:var(--accent); }
+    .low { fill:#344523; fill:var(--low); }
+    .mid { fill:#526E32; fill:var(--mid); }
+    .high { fill:#80A94B; fill:var(--high); }
+    .label { font-weight:600; letter-spacing:1px; }
+    .bold { font-weight:700; }
+
+  </style>
+  <rect class="ground" width="640" height="259"/>
+  <rect class="rule" x=".5" y=".5" width="639" height="258"/>
+
+    <text x="35" y="37" font-size="24" class="bold">Development activity</text>
+    <text x="605" y="37" font-size="20" class="accent label" text-anchor="end">339 total</text>
+    <text x="35" y="65" font-size="17" class="muted">Weekly contributions · last 12 complete weeks</text>
+    <path class="rule" d="M65 101H605"/><text x="56" y="106" font-size="14" class="muted" text-anchor="end">160</text><path class="rule" d="M65 150.5H605"/><text x="56" y="155.5" font-size="14" class="muted" text-anchor="end">80</text><path class="rule" d="M65 200H605"/><text x="56" y="205" font-size="14" class="muted" text-anchor="end">0</text>
+    <polyline class="signal" stroke-width="2" points="76,200 123.5,200 171,200 218.5,199.38125 266,200 313.5,134.4125 361,104.09375 408.5,185.15 456,167.825 503.5,200 551,199.38125 598.5,200"/>
+    <rect x="73" y="197" width="6" height="6" class="accent"/><rect x="120.5" y="197" width="6" height="6" class="accent"/><rect x="168" y="197" width="6" height="6" class="accent"/><rect x="215.5" y="196.38125" width="6" height="6" class="accent"/><rect x="263" y="197" width="6" height="6" class="accent"/><rect x="310.5" y="131.4125" width="6" height="6" class="accent"/><rect x="358" y="101.09375" width="6" height="6" class="accent"/><rect x="405.5" y="182.15" width="6" height="6" class="accent"/><rect x="453" y="164.825" width="6" height="6" class="accent"/><rect x="500.5" y="197" width="6" height="6" class="accent"/><rect x="548" y="196.38125" width="6" height="6" class="accent"/><rect x="595.5" y="197" width="6" height="6" class="accent"/>
+    <text x="35" y="235" font-size="17" class="muted">Aug 30, 2026 – Nov 21, 2026</text>
+
+</svg>

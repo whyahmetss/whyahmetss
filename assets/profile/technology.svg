@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="161" viewBox="0 0 640 161" role="img" aria-labelledby="title description">
+  <title id="title">Technology stack</title>
+  <desc id="description">JavaScript, TypeScript, Python, React, Node.js, PostgreSQL</desc>
+  <style>
+    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    @media (prefers-color-scheme: light) {
+      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+    }
+    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
+    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
+    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
+    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
+    .ground { fill:#0B0D10; fill:var(--ground); }
+    .panel { fill:#14171C; fill:var(--panel); }
+    .muted { fill:#90969E; fill:var(--muted); }
+    .accent { fill:#C5F36D; fill:var(--accent); }
+    .low { fill:#344523; fill:var(--low); }
+    .mid { fill:#526E32; fill:var(--mid); }
+    .high { fill:#80A94B; fill:var(--high); }
+    .label { font-weight:600; letter-spacing:1px; }
+    .bold { font-weight:700; }
+
+    @keyframes settle { from { opacity:.5; transform:translateY(3px); } to { opacity:1; transform:translateY(0); } }
+    @media (prefers-reduced-motion: no-preference) {
+      .icon { animation:settle .24s cubic-bezier(.23,1,.32,1) both; }
+    }
+  </style>
+  <rect class="ground" width="640" height="161"/>
+  <rect class="rule" x=".5" y=".5" width="639" height="160"/>
+
+    <path class="rule" d="M1 80.5H639M213.5 1V160M426.5 1V160"/>
+    <g transform="translate(26 25)">
+        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:0ms"><path d="M4 7 11 14 4 21M17 21h14"/></g>
+        <text x="43" y="23" font-size="18" class="label">JavaScript</text>
+      </g>
+    <g transform="translate(239 25)">
+        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:55ms"><path d="M2 7h26M15 7v19M22 26h9m0-19v19"/></g>
+        <text x="43" y="23" font-size="18" class="label">TypeScript</text>
+      </g>
+    <g transform="translate(452 25)">
+        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:110ms"><path d="M4 15c-1-5 2-9 7-9h13v10H10c-4 0-6 3-6 6m28-8c1 5-2 9-7 9H12V13h14c4 0 6-3 6-6"/></g>
+        <text x="43" y="23" font-size="18" class="label">Python</text>
+      </g>
+    <g transform="translate(26 105)">
+        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:165ms"><path d="M17 3 31 11v14l-14 8-14-8V11zM3 11l14 8 14-8m-14 8v14m-7-17 14-8"/></g>
+        <text x="43" y="23" font-size="18" class="label">React</text>
+      </g>
+    <g transform="translate(239 105)">
+        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:220ms"><path d="M3 19 17 7l14 12-14 12zM9 18l8-7 8 7-8 7z"/></g>
+        <text x="43" y="23" font-size="18" class="label">Node.js</text>
+      </g>
+    <g transform="translate(452 105)">
+        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:275ms"><path d="M4 9c0-6 26-6 26 0v16c0 6-26 6-26 0zm0 0c0 6 26 6 26 0m-26 8c0 6 26 6 26 0"/></g>
+        <text x="43" y="23" font-size="18" class="label">PostgreSQL</text>
+      </g>
+
+</svg>

@@ -1,0 +1,74 @@
+name: EVERY profile assets
+
+on:
+  pull_request:
+    paths:
+      - README.md
+      - 'assets/profile/**'
+      - 'scripts/**'
+      - '.github/workflows/profile.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/**'
+      - '.github/workflows/profile.yml'
+  schedule:
+    - cron: '23 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: every-profile-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check deterministic artwork
+        run: |
+          node scripts/generate.mjs --static
+          git diff --exit-code -- assets/profile
+          test -z "$(git ls-files --others --exclude-standard -- assets/profile)"
+      - name: Check live GitHub data and SVG generation
+        env:
+          PROFILE_API_TOKEN: ${{ github.token }}
+        run: node scripts/generate.mjs
+
+  refresh:
+    if: github.event_name != 'pull_request' && github.repository == 'whyahmetss/whyahmetss' && github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Render public GitHub analytics
+        env:
+          PROFILE_API_TOKEN: ${{ github.token }}
+        run: node scripts/generate.mjs
+      - name: Publish changed analytics
+        env:
+          PROFILE_PUSH_TOKEN: ${{ github.token }}
+          PROFILE_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git add -- assets/profile/contribution.svg assets/profile/repositories.svg assets/profile/development.svg
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m 'chore: refresh EVERY analytics'
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'
+          export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$PROFILE_PUSH_TOKEN" | base64 -w0)"
+          git push origin "HEAD:refs/heads/$PROFILE_BRANCH"

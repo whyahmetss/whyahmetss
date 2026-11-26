@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="152" viewBox="0 0 640 152" role="img" aria-labelledby="title description">
+  <title id="title">Creative Engine</title>
+  <desc id="description">AI-assisted video production infrastructure. in development.</desc>
+  <style>
+    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    @media (prefers-color-scheme: light) {
+      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+    }
+    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
+    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
+    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
+    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
+    .ground { fill:#0B0D10; fill:var(--ground); }
+    .panel { fill:#14171C; fill:var(--panel); }
+    .muted { fill:#90969E; fill:var(--muted); }
+    .accent { fill:#C5F36D; fill:var(--accent); }
+    .low { fill:#344523; fill:var(--low); }
+    .mid { fill:#526E32; fill:var(--mid); }
+    .high { fill:#80A94B; fill:var(--high); }
+    .label { font-weight:600; letter-spacing:1px; }
+    .bold { font-weight:700; }
+
+  </style>
+  <rect class="ground" width="640" height="152"/>
+  <rect class="rule" x=".5" y=".5" width="639" height="151"/>
+
+    <rect x="400" y="1" width="239" height="150" class="panel"/>
+    <rect x="37" y="26" width="7" height="7" class="muted"/>
+    <text x="54" y="37" font-size="17" class="muted label">IN DEVELOPMENT</text>
+    <text x="36" y="79" font-size="34" class="bold">Creative Engine</text>
+    <text x="37" y="110" font-size="19" class="muted">AI-assisted video</text><text x="37" y="133" font-size="19" class="muted">production infrastructure.</text>
+    <g aria-hidden="true" transform="translate(426 34)"><g fill="none" stroke-width="1.4">
+        <path class="rule" d="M0 6H188M0 36H188M0 66H188M30 2V80M78 2V80M126 2V80M174 2V80"/>
+        <rect x="8" y="13" width="71" height="15" class="panel wire"/>
+        <rect x="86" y="13" width="57" height="15" class="panel wire"/>
+        <rect x="54" y="43" width="89" height="15" class="low signal"/>
+        <rect x="148" y="43" width="28" height="15" class="panel wire"/>
+        <path class="signal" d="M105 3V76M101 3H109M101 76H109"/>
+        <path class="wire" d="M17 76h14m12 0h14m68 0h14m14 0h14"/>
+      </g></g>
+
+
+</svg>
