@@ -37,7 +37,7 @@
     <text x="36" y="44" font-size="11" class="caps muted">LANGUAGES</text>
     <text x="604" y="44" font-size="12" class="mono muted" text-anchor="end">6 public repositories</text>
     <rect x="36" y="78" width="568" height="10" class="panel" rx="3"/>
-    <rect x="36.00" y="78" width="445.58" height="10" rx="3" style="fill:#7C8CFF;fill:var(--a1)"/><rect x="483.58" y="78" width="54.23" height="10" rx="3" style="fill:#38D5F5;fill:var(--a2)"/><rect x="539.82" y="78" width="39.46" height="10" rx="3" style="fill:#3DDC97;fill:#3DDC97"/><rect x="581.28" y="78" width="8.22" height="10" rx="3" style="fill:#F5B54A;fill:#F5B54A"/><rect x="591.50" y="78" width="7.66" height="10" rx="3" style="fill:#F472B6;fill:#F472B6"/><rect x="601.16" y="78" width="0.84" height="10" rx="3" style="fill:#80858E;fill:#80858E"/>
+    <rect x="36.00" y="78" width="445.86" height="10" rx="3" style="fill:#7C8CFF;fill:var(--a1)"/><rect x="483.86" y="78" width="53.96" height="10" rx="3" style="fill:#38D5F5;fill:var(--a2)"/><rect x="539.82" y="78" width="39.69" height="10" rx="3" style="fill:#3DDC97;fill:#3DDC97"/><rect x="581.51" y="78" width="8.05" height="10" rx="3" style="fill:#F5B54A;fill:#F5B54A"/><rect x="591.56" y="78" width="7.86" height="10" rx="3" style="fill:#F472B6;fill:#F472B6"/><rect x="601.42" y="78" width="0.58" height="10" rx="3" style="fill:#80858E;fill:#80858E"/>
     <circle cx="41" cy="120" r="4.5" style="fill:#7C8CFF;fill:var(--a1)"/>
       <text x="54" y="124" font-size="13" class="w6">JavaScript</text>
       <text x="206" y="124" font-size="12" class="mono muted" text-anchor="end">78.8%</text><circle cx="233" cy="120" r="4.5" style="fill:#38D5F5;fill:var(--a2)"/>
