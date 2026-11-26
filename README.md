@@ -3,28 +3,32 @@
   <img src="assets/profile/hero.svg" width="640" alt="EVERY — @whyahmetss, Founder / Builder. Building systems that outlast their creators. Artificial Intelligence, Software Development, Business Automation, Creative Technology, Digital Products.">
 </picture>
 
-## Product ecosystem
+<br><br>
 
 [![SıraGo — appointments and automation for service businesses. Open for sign-up.](assets/profile/sirago.svg)](https://xn--srago-n4a.com/)
 
-![Creative Engine — AI-assisted video production infrastructure. In development.](assets/profile/creative-engine.svg)
+<br>
 
-## Technology stack
+![Creative Engine — AI-assisted video production infrastructure for brands. In development.](assets/profile/creative-engine.svg)
 
-![Selected technologies in public repositories: JavaScript, TypeScript, Python, React, Node.js, and PostgreSQL.](assets/profile/technology.svg)
+<br>
 
-[Explore public repositories →](https://github.com/whyahmetss?tab=repositories)
+![Stack: JavaScript, TypeScript, Python, React, Node.js, PostgreSQL.](assets/profile/technology.svg)
 
-## GitHub analytics
+<br>
 
-![Contribution activity for the past 365 days. The EVERY mark traces recorded contribution days.](assets/profile/contribution.svg)
+![Contribution activity for the past 365 days.](assets/profile/contribution.svg)
 
-![Public repository totals and most used languages by GitHub-reported bytes.](assets/profile/repositories.svg)
+<br>
 
-![Development activity across the last 12 complete weeks.](assets/profile/development.svg)
+![Public contributions over the last 12 complete weeks.](assets/profile/development.svg)
 
-Activity reflects [GitHub’s public contribution calendar](https://github.com/whyahmetss?tab=overview). Repository statistics use owned public projects, excluding forks, archived projects, and this profile repo.
+<br>
 
----
+![Language share across public repositories.](assets/profile/repositories.svg)
 
-![EVERY — BUILD FOR TOMORROW.](assets/profile/footer.svg)
+<sub>Activity from <a href="https://github.com/whyahmetss?tab=overview">GitHub’s public contribution calendar</a>, refreshed daily. Language share covers owned public repositories, excluding forks, archives and this profile repo. · <a href="https://github.com/whyahmetss?tab=repositories">Explore repositories →</a></sub>
+
+<br><br>
+
+![EVERY — Build for tomorrow.](assets/profile/footer.svg)
