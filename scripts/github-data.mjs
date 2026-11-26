@@ -2,22 +2,27 @@ const DAY_MS = 86_400_000;
 const LOGIN = "whyahmetss";
 const API = "https://api.github.com";
 
-async function request(url, accept) {
+async function request(url, accept, token) {
   const response = await fetch(url, {
     headers: {
       Accept: accept,
       "Accept-Language": "en-US",
       "User-Agent": "every-profile-generator",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
     redirect: "error",
     signal: AbortSignal.timeout(20_000),
   });
-  if (!response.ok) throw new Error(`GitHub returned HTTP ${response.status} for ${url.pathname}`);
+  if (!response.ok) {
+    const remaining = response.headers.get("x-ratelimit-remaining");
+    const limit = remaining === null ? "" : ` (rate limit remaining: ${remaining})`;
+    throw new Error(`GitHub returned HTTP ${response.status} for ${url.pathname}${limit}`);
+  }
   return response;
 }
 
 async function json(path) {
-  const response = await request(new URL(path, API), "application/vnd.github+json");
+  const response = await request(new URL(path, API), "application/vnd.github+json", process.env.PROFILE_API_TOKEN);
   return response.json();
 }
 

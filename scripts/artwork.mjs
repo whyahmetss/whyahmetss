@@ -113,7 +113,7 @@ export function hero(compact) {
       : text(x, divider + 99, "Building systems that outlast their creators.", 20)}
     ${focus.map((item, i) => {
       const positions = compact ? [[0, 149], [0, 171], [0, 193], [0, 215], [0, 0]] :
-        [[0, 139], [201, 139], [0, 164], [201, 164], [403, 164]];
+        [[0, 139], [253, 139], [0, 164], [201, 164], [403, 164]];
       if (compact && i === 4) return text(width - x, divider + 171, item, 15, "muted", 'text-anchor="end"');
       return text(x + positions[i][0], divider + positions[i][1], item, compact ? 15 : 16, "muted");
     }).join("\n    ")}`;
