@@ -29,10 +29,10 @@ function svg(title, description, height, body, { width = WIDTH, css = "", defs =
   <defs>${glowLayer}${defs}</defs>
   <style>
     svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
-          --a1:#7C8CFF; --a2:#38D5F5; --ok:#3DDC97; --warn:#F5B54A; }
+          --a1:#4ADE80; --a2:#2DD4BF; --ok:#3DDC97; --warn:#F5B54A; }
     @media (prefers-color-scheme: light) {
       svg { --ground:#FFFFFF; --panel:#F7F8FA; --raise:#FFFFFF; --ink:#0B0D12; --soft:#2E333B; --muted:#646A74; --line:#E7E9ED; --edge:#D9DCE1;
-            --a1:#4F5BD5; --a2:#0E9FC2; --ok:#12A66B; --warn:#C98512; }
+            --a1:#15803D; --a2:#0F766E; --ok:#12A66B; --warn:#C98512; }
     }
     text { font-family:${SANS}; fill:#F2F3F5; fill:var(--ink); }
     .mono { font-family:${MONO}; }
@@ -43,14 +43,14 @@ function svg(title, description, height, body, { width = WIDTH, css = "", defs =
     .raise { fill:#15181C; fill:var(--raise); }
     .line { fill:none; stroke:#1E2126; stroke:var(--line); }
     .edge { fill:none; stroke:#2A2E34; stroke:var(--edge); }
-    .a1 { fill:#7C8CFF; fill:var(--a1); }
-    .a2 { fill:#38D5F5; fill:var(--a2); }
-    .s-a1 { fill:none; stroke:#7C8CFF; stroke:var(--a1); }
+    .a1 { fill:#4ADE80; fill:var(--a1); }
+    .a2 { fill:#2DD4BF; fill:var(--a2); }
+    .s-a1 { fill:none; stroke:#4ADE80; stroke:var(--a1); }
     .ok { fill:#3DDC97; fill:var(--ok); }
     .warn { fill:#F5B54A; fill:var(--warn); }
-    .g-a1 { stop-color:#7C8CFF; stop-color:var(--a1); }
-    .g-a2 { stop-color:#38D5F5; stop-color:var(--a2); }
-    .g-glow { stop-color:#7C8CFF; stop-color:var(--a1); }
+    .g-a1 { stop-color:#4ADE80; stop-color:var(--a1); }
+    .g-a2 { stop-color:#2DD4BF; stop-color:var(--a2); }
+    .g-glow { stop-color:#4ADE80; stop-color:var(--a1); }
     .w5 { font-weight:500; } .w6 { font-weight:600; } .w7 { font-weight:700; }
     .caps { letter-spacing:1.6px; font-weight:600; }
     ${css}
@@ -114,31 +114,91 @@ function pillRow(x, y, labels, maxWidth, options) {
   return out.join("");
 }
 
-const FOCUS = ["Artificial Intelligence", "Software Development", "Business Automation", "Creative Technology", "Digital Products"];
+
+// Identicon of @whyahmetss (5×5, mirrored), rendered as an ASCII portrait.
+const IDENTICON = ["#.#.#", "..#..", ".#.#.", "#####", "#...#"];
+const RAMP = "##%#@##%#&#";
+
+function portrait(cellW, cellH) {
+  const rows = [];
+  for (let r = 0; r < IDENTICON.length * cellH; r++) {
+    let line = "";
+    for (let c = 0; c < IDENTICON[0].length * cellW; c++) {
+      const on = IDENTICON[Math.floor(r / cellH)][Math.floor(c / cellW)] === "#";
+      const edge = r % cellH === 0 || c % cellW === 0;
+      line += on ? RAMP[(r * 7 + c * 3) % RAMP.length] : ((r * 3 + c) % 9 === 0 ? "·" : " ");
+    }
+    rows.push(line);
+  }
+  return rows;
+}
+
+const INFO = [
+  ["Role", "Founder / Builder"],
+  ["Focus", "AI · automation · creative tech"],
+  ["Products", "SıraGo (live) · Creative Engine (beta)"],
+  ["Stack.Frontend", "React, TypeScript"],
+  ["Stack.Backend", "Node.js, Python"],
+  ["Stack.Database", "PostgreSQL"],
+  ["Environment", "git, vscode, claude code"],
+  ["Website", "sırago.com"],
+  ["Motto", "Build systems that outlast you."],
+];
+const BLOCKS = ["#1F2328", "#F87171", "#4ADE80", "#FACC15", "#60A5FA", "#C084FC", "#2DD4BF", "#E5E7EB"];
+
+function reveal(i, base = .25, step = .11) {
+  return `style="animation-delay:${(base + i * step).toFixed(2)}s"`;
+}
+
+const TERMINAL_CSS = `
+    .ln { opacity:1; }
+    .cur { fill:#4ADE80; fill:var(--a1); }
+    .key { fill:#4ADE80; fill:var(--a1); font-weight:700; }
+    .art { fill:#4ADE80; fill:var(--a1); }
+    @keyframes in { from { opacity:0; transform:translateX(-6px); } to { opacity:1; transform:none; } }
+    @keyframes blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+    @media (prefers-reduced-motion: no-preference) {
+      .ln { opacity:0; animation:in .35s ease-out forwards; }
+      .cur { animation:blink 1.05s steps(1) infinite; }
+    }`;
+
+function chrome(width) {
+  return `${rect(0, 0, width, 36, "panel", 'rx="14"')}${rect(0, 22, width, 14, "panel")}
+    <path class="line" d="M0 36.5H${width}"/>
+    <circle cx="22" cy="18" r="5.5" fill="#F87171"/><circle cx="40" cy="18" r="5.5" fill="#FACC15"/><circle cx="58" cy="18" r="5.5" fill="#4ADE80"/>
+    ${text(width / 2, 22.5, "whyahmetss — zsh — every", 11.5, "mono muted", 'text-anchor="middle"')}`;
+}
 
 export function hero(compact) {
   const gid = id("grad");
   if (compact) {
-    return svg("EVERY — @whyahmetss", "Founder and builder. Building systems that outlast their creators.", 320, `
-    ${mark(28, 30, 22, `url(#${gid})`)}
-    ${text(60, 47, "EVERY", 15, "w7", 'letter-spacing="3"')}
-    ${text(28, 112, "Building systems", 30, "w7", 'letter-spacing="-.6"')}
-    ${text(28, 148, "that outlast", 30, "w7", 'letter-spacing="-.6"')}
-    ${text(28, 184, "their creators.", 30, "w7", `letter-spacing="-.6" fill="url(#${gid})"`)}
-    ${text(28, 222, "@whyahmetss · Founder / Builder", 14, "muted w5")}
-    ${pillRow(28, 248, ["AI", "Software", "Automation", "Creative Tech"], 344)}
-  `, { width: 400, defs: gradient(gid), glow: { cx: "85%", cy: "0%", r: "75%", opacity: .28 } });
+    const art = portrait(4, 2);
+    const lines = INFO.filter(([k]) => ["Role", "Focus", "Products", "Website"].includes(k));
+    return svg("whyahmetss@github", `Founder and builder. ${INFO.map(([k, v]) => `${k}: ${v}`).join(". ")}.`, 470, `
+    ${chrome(400)}
+    <g class="mono">${art.map((l, i) => text(40, 72 + i * 13, l, 12, "mono art ln", `xml:space="preserve" ${reveal(i, .1, .04)}`)).join("")}</g>
+    ${text(28, 238, "whyahmetss@github", 15, "mono w7 ln", `style="fill:url(#${gid});animation-delay:.25s"`)}
+    <path class="s-a1 ln" d="M28 247.5H190" ${reveal(0)}/>
+    ${lines.map(([k, v], i) => `<text x="28" y="${274 + i * 22}" font-size="12" class="mono ln" ${reveal(i + 1)}><tspan class="key">${escapeXml(k)}:</tspan><tspan class="soft"> ${escapeXml(v)}</tspan></text>`).join("")}
+    ${BLOCKS.map((c, i) => `<rect x="${28 + i * 22}" y="372" width="18" height="12" rx="2" fill="${c}" class="ln" ${reveal(6)}/>`).join("")}
+    ${text(28, 416, "└─$ build --for tomorrow", 12, "mono soft ln", reveal(7))}
+    <rect class="cur" x="${28 + 24 * 7.25}" y="405" width="7" height="14"/>
+  `, { width: 400, defs: gradient(gid), css: TERMINAL_CSS, glow: { cx: "20%", cy: "30%", r: "60%", opacity: .14 } });
   }
-  return svg("EVERY — @whyahmetss", `Founder and builder. Building systems that outlast their creators. Focus: ${FOCUS.join(", ")}.`, 330, `
-    ${mark(40, 38, 22, `url(#${gid})`)}
-    ${text(72, 55, "EVERY", 15, "w7", 'letter-spacing="3"')}
-    ${text(600, 55, "@whyahmetss", 13, "mono muted", 'text-anchor="end"')}
-    <path class="line" d="M40 84.5H600"/>
-    ${text(40, 142, "Building systems that", 40, "w7", 'letter-spacing="-1"')}
-    ${text(40, 190, "outlast their creators.", 40, "w7", `letter-spacing="-1" fill="url(#${gid})"`)}
-    ${text(40, 228, "Founder / Builder — products at the edge of AI, automation and video.", 15, "soft")}
-    ${pillRow(40, 256, FOCUS, 560)}
-  `, { defs: gradient(gid), glow: { cx: "88%", cy: "-10%", r: "70%", opacity: .3 } });
+  const art = portrait(6, 3);
+  return svg("whyahmetss@github", `Founder and builder. ${INFO.map(([k, v]) => `${k}: ${v}`).join(". ")}.`, 420, `
+    ${chrome(800)}
+    <g>${art.map((l, i) => text(36, 82 + i * 18.5, l, 15, "mono art ln", `xml:space="preserve" ${reveal(i, .1, .035)}`)).join("")}</g>
+    <path class="line" d="M344.5 60V392"/>
+    ${text(372, 84, "whyahmetss", 17, "mono w7 ln", `style="fill:url(#${gid});animation-delay:.25s"`)}
+    ${text(372 + 10 * 10.3, 84, "@github", 17, "mono muted w7 ln", reveal(0))}
+    <path class="s-a1 ln" d="M372 96.5H640" ${reveal(0)}/>
+    ${INFO.map(([k, v], i) => `<text x="372" y="${126 + i * 24}" font-size="13.5" class="mono ln" ${reveal(i + 1)}><tspan class="key">${escapeXml(k)}:</tspan><tspan class="soft"> ${escapeXml(v)}</tspan></text>`).join("")}
+    ${BLOCKS.map((c, i) => `<rect x="${372 + i * 26}" y="${126 + INFO.length * 24 - 2}" width="22" height="14" rx="3" fill="${c}" class="ln" ${reveal(INFO.length + 1)}/>`).join("")}
+    ${text(372, 386, "┌──(whyahmetss@every)-[~]", 12.5, "mono muted ln", reveal(INFO.length + 2))}
+    ${text(372, 404, "└─$ build --for tomorrow", 12.5, "mono soft ln", reveal(INFO.length + 3))}
+    <rect class="cur" x="${372 + 24 * 7.55}" y="393" width="8" height="15"/>
+  `, { width: 800, defs: gradient(gid), css: TERMINAL_CSS, glow: { cx: "18%", cy: "45%", r: "55%", opacity: .16 } });
 }
 
 function siragoArt(x, y, gid) {
@@ -264,7 +324,7 @@ export function repositories(data) {
   const rest = total - leading.reduce((sum, [, bytes]) => sum + bytes, 0);
   const rows = rest > 0 ? [...leading, ["Other", rest]] : leading;
   const palette = ["var(--a1)", "var(--a2)", "#3DDC97", "#F5B54A", "#F472B6", "#80858E"];
-  const fallback = ["#7C8CFF", "#38D5F5", "#3DDC97", "#F5B54A", "#F472B6", "#80858E"];
+  const fallback = ["#4ADE80", "#2DD4BF", "#3DDC97", "#F5B54A", "#F472B6", "#80858E"];
   const fmt = v => v < .1 ? "<0.1%" : `${v.toFixed(1)}%`;
   const barW = 568;
   let bx = 36;
