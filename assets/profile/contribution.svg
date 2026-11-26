@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="475" viewBox="0 0 640 475" role="img" aria-labelledby="title description">
   <title id="title">Contribution activity</title>
-  <desc id="description">1,755 publicly visible contributions on 68 active days from Nov 27, 2025 – Nov 26, 2026. The EVERY mark visits recorded contribution days.</desc>
+  <desc id="description">1,759 publicly visible contributions on 68 active days from Nov 27, 2025 – Nov 26, 2026. The EVERY mark visits recorded contribution days.</desc>
   <style>
     svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
     @media (prefers-color-scheme: light) {
@@ -42,7 +42,7 @@
   <rect class="ground" width="640" height="475"/>
   <rect class="rule" x=".5" y=".5" width="639" height="474"/>
 
-    <text x="35" y="36" font-size="27" class="bold">1,755 contributions</text>
+    <text x="35" y="36" font-size="27" class="bold">1,759 contributions</text>
     <text x="605" y="36" font-size="17" class="muted" text-anchor="end">68 active days</text>
     <text x="35" y="63" font-size="18" class="muted">Nov 27, 2025 – Nov 26, 2026</text>
 
