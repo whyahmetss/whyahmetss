@@ -1,39 +1,68 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="152" viewBox="0 0 640 152" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="210" viewBox="0 0 640 210" role="img" aria-labelledby="title description">
   <title id="title">SıraGo</title>
-  <desc id="description">Appointments and automation for service businesses. open for sign-up.</desc>
+  <desc id="description">SıraGo: Appointments and automation for service businesses. Status: Open for sign-up.</desc>
+  <defs><radialGradient id="glow6" cx="90%" cy="50%" r="55%">
+      <stop offset="0" class="g-glow" stop-opacity="0.16"/>
+      <stop offset="1" class="g-glow" stop-opacity="0"/>
+    </radialGradient><linearGradient id="grad5" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" class="g-a1"/><stop offset="1" class="g-a2"/>
+    </linearGradient></defs>
   <style>
-    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
+          --a1:#7C8CFF; --a2:#38D5F5; --ok:#3DDC97; --warn:#F5B54A; }
     @media (prefers-color-scheme: light) {
-      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+      svg { --ground:#FFFFFF; --panel:#F7F8FA; --raise:#FFFFFF; --ink:#0B0D12; --soft:#2E333B; --muted:#646A74; --line:#E7E9ED; --edge:#D9DCE1;
+            --a1:#4F5BD5; --a2:#0E9FC2; --ok:#12A66B; --warn:#C98512; }
     }
-    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
-    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
-    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
-    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
-    .ground { fill:#0B0D10; fill:var(--ground); }
-    .panel { fill:#14171C; fill:var(--panel); }
-    .muted { fill:#90969E; fill:var(--muted); }
-    .accent { fill:#C5F36D; fill:var(--accent); }
-    .low { fill:#344523; fill:var(--low); }
-    .mid { fill:#526E32; fill:var(--mid); }
-    .high { fill:#80A94B; fill:var(--high); }
-    .label { font-weight:600; letter-spacing:1px; }
-    .bold { font-weight:700; }
+    text { font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill:#F2F3F5; fill:var(--ink); }
+    .mono { font-family:ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }
+    .soft { fill:#C5C8CE; fill:var(--soft); }
+    .muted { fill:#80858E; fill:var(--muted); }
+    .ground { fill:#08090B; fill:var(--ground); }
+    .panel { fill:#0F1114; fill:var(--panel); }
+    .raise { fill:#15181C; fill:var(--raise); }
+    .line { fill:none; stroke:#1E2126; stroke:var(--line); }
+    .edge { fill:none; stroke:#2A2E34; stroke:var(--edge); }
+    .a1 { fill:#7C8CFF; fill:var(--a1); }
+    .a2 { fill:#38D5F5; fill:var(--a2); }
+    .s-a1 { fill:none; stroke:#7C8CFF; stroke:var(--a1); }
+    .ok { fill:#3DDC97; fill:var(--ok); }
+    .warn { fill:#F5B54A; fill:var(--warn); }
+    .g-a1 { stop-color:#7C8CFF; stop-color:var(--a1); }
+    .g-a2 { stop-color:#38D5F5; stop-color:var(--a2); }
+    .g-glow { stop-color:#7C8CFF; stop-color:var(--a1); }
+    .w5 { font-weight:500; } .w6 { font-weight:600; } .w7 { font-weight:700; }
+    .caps { letter-spacing:1.6px; font-weight:600; }
 
   </style>
-  <rect class="ground" width="640" height="152"/>
-  <rect class="rule" x=".5" y=".5" width="639" height="151"/>
+  <rect class="ground" width="640" height="210" rx="14"/>
+  <rect width="640" height="210" rx="14" fill="url(#glow6)"/>
+  <rect class="edge" x=".5" y=".5" width="639" height="209" rx="13.5"/>
 
-    <rect x="400" y="1" width="239" height="150" class="panel"/>
-    <rect x="37" y="26" width="7" height="7" class="accent"/>
-    <text x="54" y="37" font-size="17" class="accent label">OPEN FOR SIGN-UP</text>
-    <text x="36" y="79" font-size="34" class="bold">SıraGo</text>
-    <text x="37" y="110" font-size="19" class="muted">Appointments and automation</text><text x="37" y="133" font-size="19" class="muted">for service businesses.</text>
-    <g aria-hidden="true" transform="translate(426 34)"><g stroke-width="1.4">
-        <path class="wire" d="M7 14H181M7 43H181M7 72H181M40 1V84M94 1V84M148 1V84"/>
-        <rect x="5" y="7" width="24" height="14" class="panel rule"/><rect x="50" y="7" width="24" height="14" class="panel rule"/><rect x="95" y="7" width="24" height="14" class="low signal"/><rect x="140" y="7" width="24" height="14" class="panel rule"/><rect x="5" y="36" width="24" height="14" class="panel rule"/><rect x="50" y="36" width="24" height="14" class="panel rule"/><rect x="95" y="36" width="24" height="14" class="panel rule"/><rect x="140" y="36" width="24" height="14" class="panel rule"/><rect x="5" y="65" width="24" height="14" class="low signal"/><rect x="50" y="65" width="24" height="14" class="panel rule"/><rect x="95" y="65" width="24" height="14" class="panel rule"/><rect x="140" y="65" width="24" height="14" class="panel rule"/>
-        <path class="signal" d="M104 13h6v-5m-6 64h6v-5"/>
-      </g></g>
-    <path class="signal" stroke-width="1.5" d="M610 28l12-12m-9 0h9v9"/>
+    <g>
+      <rect x="36" y="34" width="142" height="26" class="raise" rx="13"/>
+      <rect x="36.5" y="34.5" width="141" height="25" class="edge" rx="12.5"/>
+      <circle cx="50" cy="47" r="3.5" class="ok"/>
+      <text x="61" y="51.5" font-size="12" class="soft w5">Open for sign-up</text>
+    </g>
+    <text x="36" y="104" font-size="32" class="w7" letter-spacing="-.8">SıraGo</text>
+    <text x="36" y="134" font-size="15" class="soft">Appointments and automation</text>
+    <text x="36" y="156" font-size="15" class="soft">for service businesses.</text>
+    <text x="36" y="186" font-size="13" class="w6" style="fill:url(#grad5)">sırago.com  →</text>
+    <rect x="372" y="14" width="254" height="182" class="panel" rx="10"/>
+    <rect x="372.5" y="14.5" width="253" height="181" class="line" rx="9.5"/>
+    <text x="392" y="53" font-size="11" class="mono muted">09:00</text>
+      <rect x="438" y="36" width="158" height="26" class="raise" rx="7"/>
+      <rect x="438.5" y="36.5" width="157" height="25" class="edge" rx="6.5"/>
+      <rect x="450" y="47" width="46" height="4" class="edge" rx="2"/><text x="392" y="87" font-size="11" class="mono muted">10:30</text>
+      <rect x="438" y="70" width="158" height="26" class="" rx="7" fill="url(#grad5)"/>
+
+      <text x="450" y="87.5" font-size="11" class="w6" style="fill:#0B0D12">Booked · confirmed</text><text x="392" y="121" font-size="11" class="mono muted">12:00</text>
+      <rect x="438" y="104" width="158" height="26" class="raise" rx="7"/>
+      <rect x="438.5" y="104.5" width="157" height="25" class="edge" rx="6.5"/>
+      <rect x="450" y="115" width="80" height="4" class="edge" rx="2"/><text x="392" y="155" font-size="11" class="mono muted">14:30</text>
+      <rect x="438" y="138" width="158" height="26" class="raise" rx="7"/>
+      <rect x="438.5" y="138.5" width="157" height="25" class="edge" rx="6.5"/>
+      <rect x="450" y="149" width="57" height="4" class="edge" rx="2"/>
 
 </svg>

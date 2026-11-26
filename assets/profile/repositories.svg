@@ -1,64 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="407" viewBox="0 0 640 407" role="img" aria-labelledby="title description">
-  <title id="title">Public repositories and most used languages</title>
-  <desc id="description">6 repositories, 1 stars received, 1 forks received, JavaScript 78.8%, HTML 9.9%, Python 7.3%, TypeScript 1.8%, CSS 1.7%, Other 0.5%</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="186" viewBox="0 0 640 186" role="img" aria-labelledby="title description">
+  <title id="title">Languages</title>
+  <desc id="description">6 public repositories. JavaScript 78.8%, HTML 9.9%, Python 7.3%, TypeScript 1.8%, CSS 1.7%, Other 0.5%.</desc>
+  <defs></defs>
   <style>
-    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
+          --a1:#7C8CFF; --a2:#38D5F5; --ok:#3DDC97; --warn:#F5B54A; }
     @media (prefers-color-scheme: light) {
-      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+      svg { --ground:#FFFFFF; --panel:#F7F8FA; --raise:#FFFFFF; --ink:#0B0D12; --soft:#2E333B; --muted:#646A74; --line:#E7E9ED; --edge:#D9DCE1;
+            --a1:#4F5BD5; --a2:#0E9FC2; --ok:#12A66B; --warn:#C98512; }
     }
-    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
-    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
-    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
-    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
-    .ground { fill:#0B0D10; fill:var(--ground); }
-    .panel { fill:#14171C; fill:var(--panel); }
-    .muted { fill:#90969E; fill:var(--muted); }
-    .accent { fill:#C5F36D; fill:var(--accent); }
-    .low { fill:#344523; fill:var(--low); }
-    .mid { fill:#526E32; fill:var(--mid); }
-    .high { fill:#80A94B; fill:var(--high); }
-    .label { font-weight:600; letter-spacing:1px; }
-    .bold { font-weight:700; }
+    text { font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill:#F2F3F5; fill:var(--ink); }
+    .mono { font-family:ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }
+    .soft { fill:#C5C8CE; fill:var(--soft); }
+    .muted { fill:#80858E; fill:var(--muted); }
+    .ground { fill:#08090B; fill:var(--ground); }
+    .panel { fill:#0F1114; fill:var(--panel); }
+    .raise { fill:#15181C; fill:var(--raise); }
+    .line { fill:none; stroke:#1E2126; stroke:var(--line); }
+    .edge { fill:none; stroke:#2A2E34; stroke:var(--edge); }
+    .a1 { fill:#7C8CFF; fill:var(--a1); }
+    .a2 { fill:#38D5F5; fill:var(--a2); }
+    .s-a1 { fill:none; stroke:#7C8CFF; stroke:var(--a1); }
+    .ok { fill:#3DDC97; fill:var(--ok); }
+    .warn { fill:#F5B54A; fill:var(--warn); }
+    .g-a1 { stop-color:#7C8CFF; stop-color:var(--a1); }
+    .g-a2 { stop-color:#38D5F5; stop-color:var(--a2); }
+    .g-glow { stop-color:#7C8CFF; stop-color:var(--a1); }
+    .w5 { font-weight:500; } .w6 { font-weight:600; } .w7 { font-weight:700; }
+    .caps { letter-spacing:1.6px; font-weight:600; }
 
   </style>
-  <rect class="ground" width="640" height="407"/>
-  <rect class="rule" x=".5" y=".5" width="639" height="406"/>
+  <rect class="ground" width="640" height="186" rx="14"/>
 
-    <rect x="1" y="1" width="638" height="87" class="panel"/>
-    <path class="rule" d="M1 88.5H639M213.5 1V88M426.5 1V88"/>
-    <text x="33" y="44" font-size="31" class="bold">6</text><text x="33" y="70" font-size="17" class="muted">Repositories</text><text x="246" y="44" font-size="31" class="bold">1</text><text x="246" y="70" font-size="17" class="muted">Stars received</text><text x="459" y="44" font-size="31" class="bold">1</text><text x="459" y="70" font-size="17" class="muted">Forks received</text>
-    <text x="35" y="125" font-size="24" class="bold">Most used languages</text>
-    <text x="35" y="151" font-size="17" class="muted">Share of GitHub language bytes</text>
-    <g>
-      <text x="35" y="179" font-size="18" class="bold">JavaScript</text>
-      <text x="605" y="179" font-size="18" class="muted" text-anchor="end">78.8%</text>
-      <rect x="35" y="187" width="570" height="6" class="panel"/>
-      <rect x="35" y="187" width="449.44" height="6" class="accent"/>
-    </g><g>
-      <text x="35" y="219" font-size="18">HTML</text>
-      <text x="605" y="219" font-size="18" class="muted" text-anchor="end">9.9%</text>
-      <rect x="35" y="227" width="570" height="6" class="panel"/>
-      <rect x="35" y="227" width="56.16" height="6" class="high"/>
-    </g><g>
-      <text x="35" y="259" font-size="18">Python</text>
-      <text x="605" y="259" font-size="18" class="muted" text-anchor="end">7.3%</text>
-      <rect x="35" y="267" width="570" height="6" class="panel"/>
-      <rect x="35" y="267" width="41.83" height="6" class="high"/>
-    </g><g>
-      <text x="35" y="299" font-size="18">TypeScript</text>
-      <text x="605" y="299" font-size="18" class="muted" text-anchor="end">1.8%</text>
-      <rect x="35" y="307" width="570" height="6" class="panel"/>
-      <rect x="35" y="307" width="10.09" height="6" class="high"/>
-    </g><g>
-      <text x="35" y="339" font-size="18">CSS</text>
-      <text x="605" y="339" font-size="18" class="muted" text-anchor="end">1.7%</text>
-      <rect x="35" y="347" width="570" height="6" class="panel"/>
-      <rect x="35" y="347" width="9.89" height="6" class="high"/>
-    </g><g>
-      <text x="35" y="379" font-size="18">Other</text>
-      <text x="605" y="379" font-size="18" class="muted" text-anchor="end">0.5%</text>
-      <rect x="35" y="387" width="570" height="6" class="panel"/>
-      <rect x="35" y="387" width="2.59" height="6" class="high"/>
-    </g>
+  <rect class="edge" x=".5" y=".5" width="639" height="185" rx="13.5"/>
+
+    <text x="36" y="44" font-size="11" class="caps muted">LANGUAGES</text>
+    <text x="604" y="44" font-size="12" class="mono muted" text-anchor="end">6 public repositories</text>
+    <rect x="36" y="78" width="568" height="10" class="panel" rx="3"/>
+    <rect x="36.00" y="78" width="445.58" height="10" rx="3" style="fill:#7C8CFF;fill:var(--a1)"/><rect x="483.58" y="78" width="54.23" height="10" rx="3" style="fill:#38D5F5;fill:var(--a2)"/><rect x="539.82" y="78" width="39.46" height="10" rx="3" style="fill:#3DDC97;fill:#3DDC97"/><rect x="581.28" y="78" width="8.22" height="10" rx="3" style="fill:#F5B54A;fill:#F5B54A"/><rect x="591.50" y="78" width="7.66" height="10" rx="3" style="fill:#F472B6;fill:#F472B6"/><rect x="601.16" y="78" width="0.84" height="10" rx="3" style="fill:#80858E;fill:#80858E"/>
+    <circle cx="41" cy="120" r="4.5" style="fill:#7C8CFF;fill:var(--a1)"/>
+      <text x="54" y="124" font-size="13" class="w6">JavaScript</text>
+      <text x="206" y="124" font-size="12" class="mono muted" text-anchor="end">78.8%</text><circle cx="233" cy="120" r="4.5" style="fill:#38D5F5;fill:var(--a2)"/>
+      <text x="246" y="124" font-size="13" class="w6">HTML</text>
+      <text x="398" y="124" font-size="12" class="mono muted" text-anchor="end">9.9%</text><circle cx="425" cy="120" r="4.5" style="fill:#3DDC97;fill:#3DDC97"/>
+      <text x="438" y="124" font-size="13" class="w6">Python</text>
+      <text x="590" y="124" font-size="12" class="mono muted" text-anchor="end">7.3%</text><circle cx="41" cy="148" r="4.5" style="fill:#F5B54A;fill:#F5B54A"/>
+      <text x="54" y="152" font-size="13" class="w6">TypeScript</text>
+      <text x="206" y="152" font-size="12" class="mono muted" text-anchor="end">1.8%</text><circle cx="233" cy="148" r="4.5" style="fill:#F472B6;fill:#F472B6"/>
+      <text x="246" y="152" font-size="13" class="w6">CSS</text>
+      <text x="398" y="152" font-size="12" class="mono muted" text-anchor="end">1.7%</text><circle cx="425" cy="148" r="4.5" style="fill:#80858E;fill:#80858E"/>
+      <text x="438" y="152" font-size="13" class="w6">Other</text>
+      <text x="590" y="152" font-size="12" class="mono muted" text-anchor="end">0.5%</text>
 
 </svg>

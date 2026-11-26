@@ -1,57 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="161" viewBox="0 0 640 161" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="192" viewBox="0 0 640 192" role="img" aria-labelledby="title description">
   <title id="title">Technology stack</title>
-  <desc id="description">JavaScript, TypeScript, Python, React, Node.js, PostgreSQL</desc>
+  <desc id="description">Selected technologies: JavaScript, TypeScript, Python, React, Node.js, PostgreSQL.</desc>
+  <defs></defs>
   <style>
-    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
+          --a1:#7C8CFF; --a2:#38D5F5; --ok:#3DDC97; --warn:#F5B54A; }
     @media (prefers-color-scheme: light) {
-      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+      svg { --ground:#FFFFFF; --panel:#F7F8FA; --raise:#FFFFFF; --ink:#0B0D12; --soft:#2E333B; --muted:#646A74; --line:#E7E9ED; --edge:#D9DCE1;
+            --a1:#4F5BD5; --a2:#0E9FC2; --ok:#12A66B; --warn:#C98512; }
     }
-    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
-    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
-    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
-    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
-    .ground { fill:#0B0D10; fill:var(--ground); }
-    .panel { fill:#14171C; fill:var(--panel); }
-    .muted { fill:#90969E; fill:var(--muted); }
-    .accent { fill:#C5F36D; fill:var(--accent); }
-    .low { fill:#344523; fill:var(--low); }
-    .mid { fill:#526E32; fill:var(--mid); }
-    .high { fill:#80A94B; fill:var(--high); }
-    .label { font-weight:600; letter-spacing:1px; }
-    .bold { font-weight:700; }
+    text { font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill:#F2F3F5; fill:var(--ink); }
+    .mono { font-family:ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }
+    .soft { fill:#C5C8CE; fill:var(--soft); }
+    .muted { fill:#80858E; fill:var(--muted); }
+    .ground { fill:#08090B; fill:var(--ground); }
+    .panel { fill:#0F1114; fill:var(--panel); }
+    .raise { fill:#15181C; fill:var(--raise); }
+    .line { fill:none; stroke:#1E2126; stroke:var(--line); }
+    .edge { fill:none; stroke:#2A2E34; stroke:var(--edge); }
+    .a1 { fill:#7C8CFF; fill:var(--a1); }
+    .a2 { fill:#38D5F5; fill:var(--a2); }
+    .s-a1 { fill:none; stroke:#7C8CFF; stroke:var(--a1); }
+    .ok { fill:#3DDC97; fill:var(--ok); }
+    .warn { fill:#F5B54A; fill:var(--warn); }
+    .g-a1 { stop-color:#7C8CFF; stop-color:var(--a1); }
+    .g-a2 { stop-color:#38D5F5; stop-color:var(--a2); }
+    .g-glow { stop-color:#7C8CFF; stop-color:var(--a1); }
+    .w5 { font-weight:500; } .w6 { font-weight:600; } .w7 { font-weight:700; }
+    .caps { letter-spacing:1.6px; font-weight:600; }
 
-    @keyframes settle { from { opacity:.5; transform:translateY(3px); } to { opacity:1; transform:translateY(0); } }
-    @media (prefers-reduced-motion: no-preference) {
-      .icon { animation:settle .24s cubic-bezier(.23,1,.32,1) both; }
-    }
   </style>
-  <rect class="ground" width="640" height="161"/>
-  <rect class="rule" x=".5" y=".5" width="639" height="160"/>
+  <rect class="ground" width="640" height="192" rx="14"/>
 
-    <path class="rule" d="M1 80.5H639M213.5 1V160M426.5 1V160"/>
-    <g transform="translate(26 25)">
-        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:0ms"><path d="M4 7 11 14 4 21M17 21h14"/></g>
-        <text x="43" y="23" font-size="18" class="label">JavaScript</text>
-      </g>
-    <g transform="translate(239 25)">
-        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:55ms"><path d="M2 7h26M15 7v19M22 26h9m0-19v19"/></g>
-        <text x="43" y="23" font-size="18" class="label">TypeScript</text>
-      </g>
-    <g transform="translate(452 25)">
-        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:110ms"><path d="M4 15c-1-5 2-9 7-9h13v10H10c-4 0-6 3-6 6m28-8c1 5-2 9-7 9H12V13h14c4 0 6-3 6-6"/></g>
-        <text x="43" y="23" font-size="18" class="label">Python</text>
-      </g>
-    <g transform="translate(26 105)">
-        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:165ms"><path d="M17 3 31 11v14l-14 8-14-8V11zM3 11l14 8 14-8m-14 8v14m-7-17 14-8"/></g>
-        <text x="43" y="23" font-size="18" class="label">React</text>
-      </g>
-    <g transform="translate(239 105)">
-        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:220ms"><path d="M3 19 17 7l14 12-14 12zM9 18l8-7 8 7-8 7z"/></g>
-        <text x="43" y="23" font-size="18" class="label">Node.js</text>
-      </g>
-    <g transform="translate(452 105)">
-        <g class="signal icon" fill="none" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="round" style="animation-delay:275ms"><path d="M4 9c0-6 26-6 26 0v16c0 6-26 6-26 0zm0 0c0 6 26 6 26 0m-26 8c0 6 26 6 26 0"/></g>
-        <text x="43" y="23" font-size="18" class="label">PostgreSQL</text>
-      </g>
+  <rect class="edge" x=".5" y=".5" width="639" height="191" rx="13.5"/>
+
+    <text x="36" y="40" font-size="11" class="caps muted">STACK</text>
+    <text x="604" y="40" font-size="12" class="mono muted" text-anchor="end">tools I ship with</text>
+    <rect x="36" y="62" width="180" height="40" class="panel" rx="9"/>
+      <rect x="36.5" y="62.5" width="179" height="39" class="line" rx="8.5"/>
+      <circle cx="56" cy="82" r="5" fill="#F7DF1E"/>
+      <text x="72" y="87" font-size="14" class="w6">JavaScript</text><rect x="228" y="62" width="180" height="40" class="panel" rx="9"/>
+      <rect x="228.5" y="62.5" width="179" height="39" class="line" rx="8.5"/>
+      <circle cx="248" cy="82" r="5" fill="#3178C6"/>
+      <text x="264" y="87" font-size="14" class="w6">TypeScript</text><rect x="420" y="62" width="180" height="40" class="panel" rx="9"/>
+      <rect x="420.5" y="62.5" width="179" height="39" class="line" rx="8.5"/>
+      <circle cx="440" cy="82" r="5" fill="#4B8BBE"/>
+      <text x="456" y="87" font-size="14" class="w6">Python</text><rect x="36" y="112" width="180" height="40" class="panel" rx="9"/>
+      <rect x="36.5" y="112.5" width="179" height="39" class="line" rx="8.5"/>
+      <circle cx="56" cy="132" r="5" fill="#61DAFB"/>
+      <text x="72" y="137" font-size="14" class="w6">React</text><rect x="228" y="112" width="180" height="40" class="panel" rx="9"/>
+      <rect x="228.5" y="112.5" width="179" height="39" class="line" rx="8.5"/>
+      <circle cx="248" cy="132" r="5" fill="#5FA04E"/>
+      <text x="264" y="137" font-size="14" class="w6">Node.js</text><rect x="420" y="112" width="180" height="40" class="panel" rx="9"/>
+      <rect x="420.5" y="112.5" width="179" height="39" class="line" rx="8.5"/>
+      <circle cx="440" cy="132" r="5" fill="#4169E1"/>
+      <text x="456" y="137" font-size="14" class="w6">PostgreSQL</text>
 
 </svg>

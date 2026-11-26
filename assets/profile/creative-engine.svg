@@ -1,43 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="152" viewBox="0 0 640 152" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="210" viewBox="0 0 640 210" role="img" aria-labelledby="title description">
   <title id="title">Creative Engine</title>
-  <desc id="description">AI-assisted video production infrastructure. in development.</desc>
+  <desc id="description">Creative Engine: AI-assisted video production infrastructure for brands. Status: In development.</desc>
+  <defs><radialGradient id="glow8" cx="95%" cy="50%" r="55%">
+      <stop offset="0" class="g-glow" stop-opacity="0.16"/>
+      <stop offset="1" class="g-glow" stop-opacity="0"/>
+    </radialGradient><linearGradient id="grad7" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" class="g-a1"/><stop offset="1" class="g-a2"/>
+    </linearGradient></defs>
   <style>
-    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
+          --a1:#7C8CFF; --a2:#38D5F5; --ok:#3DDC97; --warn:#F5B54A; }
     @media (prefers-color-scheme: light) {
-      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+      svg { --ground:#FFFFFF; --panel:#F7F8FA; --raise:#FFFFFF; --ink:#0B0D12; --soft:#2E333B; --muted:#646A74; --line:#E7E9ED; --edge:#D9DCE1;
+            --a1:#4F5BD5; --a2:#0E9FC2; --ok:#12A66B; --warn:#C98512; }
     }
-    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
-    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
-    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
-    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
-    .ground { fill:#0B0D10; fill:var(--ground); }
-    .panel { fill:#14171C; fill:var(--panel); }
-    .muted { fill:#90969E; fill:var(--muted); }
-    .accent { fill:#C5F36D; fill:var(--accent); }
-    .low { fill:#344523; fill:var(--low); }
-    .mid { fill:#526E32; fill:var(--mid); }
-    .high { fill:#80A94B; fill:var(--high); }
-    .label { font-weight:600; letter-spacing:1px; }
-    .bold { font-weight:700; }
+    text { font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill:#F2F3F5; fill:var(--ink); }
+    .mono { font-family:ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }
+    .soft { fill:#C5C8CE; fill:var(--soft); }
+    .muted { fill:#80858E; fill:var(--muted); }
+    .ground { fill:#08090B; fill:var(--ground); }
+    .panel { fill:#0F1114; fill:var(--panel); }
+    .raise { fill:#15181C; fill:var(--raise); }
+    .line { fill:none; stroke:#1E2126; stroke:var(--line); }
+    .edge { fill:none; stroke:#2A2E34; stroke:var(--edge); }
+    .a1 { fill:#7C8CFF; fill:var(--a1); }
+    .a2 { fill:#38D5F5; fill:var(--a2); }
+    .s-a1 { fill:none; stroke:#7C8CFF; stroke:var(--a1); }
+    .ok { fill:#3DDC97; fill:var(--ok); }
+    .warn { fill:#F5B54A; fill:var(--warn); }
+    .g-a1 { stop-color:#7C8CFF; stop-color:var(--a1); }
+    .g-a2 { stop-color:#38D5F5; stop-color:var(--a2); }
+    .g-glow { stop-color:#7C8CFF; stop-color:var(--a1); }
+    .w5 { font-weight:500; } .w6 { font-weight:600; } .w7 { font-weight:700; }
+    .caps { letter-spacing:1.6px; font-weight:600; }
 
   </style>
-  <rect class="ground" width="640" height="152"/>
-  <rect class="rule" x=".5" y=".5" width="639" height="151"/>
+  <rect class="ground" width="640" height="210" rx="14"/>
+  <rect width="640" height="210" rx="14" fill="url(#glow8)"/>
+  <rect class="edge" x=".5" y=".5" width="639" height="209" rx="13.5"/>
 
-    <rect x="400" y="1" width="239" height="150" class="panel"/>
-    <rect x="37" y="26" width="7" height="7" class="muted"/>
-    <text x="54" y="37" font-size="17" class="muted label">IN DEVELOPMENT</text>
-    <text x="36" y="79" font-size="34" class="bold">Creative Engine</text>
-    <text x="37" y="110" font-size="19" class="muted">AI-assisted video</text><text x="37" y="133" font-size="19" class="muted">production infrastructure.</text>
-    <g aria-hidden="true" transform="translate(426 34)"><g fill="none" stroke-width="1.4">
-        <path class="rule" d="M0 6H188M0 36H188M0 66H188M30 2V80M78 2V80M126 2V80M174 2V80"/>
-        <rect x="8" y="13" width="71" height="15" class="panel wire"/>
-        <rect x="86" y="13" width="57" height="15" class="panel wire"/>
-        <rect x="54" y="43" width="89" height="15" class="low signal"/>
-        <rect x="148" y="43" width="28" height="15" class="panel wire"/>
-        <path class="signal" d="M105 3V76M101 3H109M101 76H109"/>
-        <path class="wire" d="M17 76h14m12 0h14m68 0h14m14 0h14"/>
-      </g></g>
-
+    <g>
+      <rect x="36" y="34" width="129" height="26" class="raise" rx="13"/>
+      <rect x="36.5" y="34.5" width="128" height="25" class="edge" rx="12.5"/>
+      <circle cx="50" cy="47" r="3.5" class="warn"/>
+      <text x="61" y="51.5" font-size="12" class="soft w5">In development</text>
+    </g>
+    <text x="36" y="104" font-size="32" class="w7" letter-spacing="-.8">Creative Engine</text>
+    <text x="36" y="134" font-size="15" class="soft">AI-assisted video production</text>
+    <text x="36" y="156" font-size="15" class="soft">infrastructure for brands.</text>
+    <text x="36" y="186" font-size="13" class="mono muted">Private beta</text>
+    <rect x="372" y="14" width="254" height="182" class="panel" rx="10"/>
+    <rect x="372.5" y="14.5" width="253" height="181" class="line" rx="9.5"/>
+    <path class="edge" d="M392.5 34V42"/><path class="edge" d="M412.5 34V39"/><path class="edge" d="M432.5 34V39"/><path class="edge" d="M452.5 34V39"/><path class="edge" d="M472.5 34V39"/><path class="edge" d="M492.5 34V42"/><path class="edge" d="M512.5 34V39"/><path class="edge" d="M532.5 34V39"/><path class="edge" d="M552.5 34V39"/><path class="edge" d="M572.5 34V39"/><path class="edge" d="M592.5 34V42"/><rect x="392" y="50" width="70" height="24" class="raise" rx="6"/><rect x="392.5" y="50.5" width="69" height="23" class="edge" rx="5.5"/><rect x="468" y="50" width="60" height="24" class="raise" rx="6"/><rect x="468.5" y="50.5" width="59" height="23" class="edge" rx="5.5"/><rect x="532" y="50" width="58" height="24" class="raise" rx="6"/><rect x="532.5" y="50.5" width="57" height="23" class="edge" rx="5.5"/><rect x="410" y="84" width="96" height="24" class="" rx="6" fill="url(#grad7)"/><rect x="512" y="84" width="70" height="24" class="raise" rx="6"/><rect x="512.5" y="84.5" width="69" height="23" class="edge" rx="5.5"/><rect x="392" y="118" width="44" height="24" class="raise" rx="6"/><rect x="392.5" y="118.5" width="43" height="23" class="edge" rx="5.5"/><rect x="442" y="118" width="140" height="24" class="raise" rx="6"/><rect x="442.5" y="118.5" width="139" height="23" class="edge" rx="5.5"/>
+      <path class="s-a1" stroke-width="1.5" d="M504.5 32V162"/>
+      <path class="a1" d="M498 30h13l-6.5 7z"/>
 
 </svg>
