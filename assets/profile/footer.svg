@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="75" viewBox="0 0 640 75" role="img" aria-labelledby="title description">
+  <title id="title">EVERY</title>
+  <desc id="description">Build for tomorrow.</desc>
+  <style>
+    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    @media (prefers-color-scheme: light) {
+      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+    }
+    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
+    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
+    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
+    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
+    .ground { fill:#0B0D10; fill:var(--ground); }
+    .panel { fill:#14171C; fill:var(--panel); }
+    .muted { fill:#90969E; fill:var(--muted); }
+    .accent { fill:#C5F36D; fill:var(--accent); }
+    .low { fill:#344523; fill:var(--low); }
+    .mid { fill:#526E32; fill:var(--mid); }
+    .high { fill:#80A94B; fill:var(--high); }
+    .label { font-weight:600; letter-spacing:1px; }
+    .bold { font-weight:700; }
+
+  </style>
+  <rect class="ground" width="640" height="75"/>
+  <rect class="rule" x=".5" y=".5" width="639" height="74"/>
+
+    <path class="signal" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" d="M59 27.5H39V47.5H59M39 37.5H54"/>
+    <text x="75" y="45" font-size="24" class="bold" letter-spacing="2">EVERY</text>
+    <text x="603" y="44" font-size="21" class="muted label" text-anchor="end">BUILD FOR TOMORROW.</text>
+
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="407" viewBox="0 0 640 407" role="img" aria-labelledby="title description">
+  <title id="title">Public repositories and most used languages</title>
+  <desc id="description">6 repositories, 1 stars received, 1 forks received, JavaScript 78.8%, HTML 9.9%, Python 7.3%, TypeScript 1.8%, CSS 1.7%, Other 0.5%</desc>
+  <style>
+    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    @media (prefers-color-scheme: light) {
+      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+    }
+    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
+    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
+    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
+    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
+    .ground { fill:#0B0D10; fill:var(--ground); }
+    .panel { fill:#14171C; fill:var(--panel); }
+    .muted { fill:#90969E; fill:var(--muted); }
+    .accent { fill:#C5F36D; fill:var(--accent); }
+    .low { fill:#344523; fill:var(--low); }
+    .mid { fill:#526E32; fill:var(--mid); }
+    .high { fill:#80A94B; fill:var(--high); }
+    .label { font-weight:600; letter-spacing:1px; }
+    .bold { font-weight:700; }
+
+  </style>
+  <rect class="ground" width="640" height="407"/>
+  <rect class="rule" x=".5" y=".5" width="639" height="406"/>
+
+    <rect x="1" y="1" width="638" height="87" class="panel"/>
+    <path class="rule" d="M1 88.5H639M213.5 1V88M426.5 1V88"/>
+    <text x="33" y="44" font-size="31" class="bold">6</text><text x="33" y="70" font-size="17" class="muted">Repositories</text><text x="246" y="44" font-size="31" class="bold">1</text><text x="246" y="70" font-size="17" class="muted">Stars received</text><text x="459" y="44" font-size="31" class="bold">1</text><text x="459" y="70" font-size="17" class="muted">Forks received</text>
+    <text x="35" y="125" font-size="24" class="bold">Most used languages</text>
+    <text x="35" y="151" font-size="17" class="muted">Share of GitHub language bytes</text>
+    <g>
+      <text x="35" y="179" font-size="18" class="bold">JavaScript</text>
+      <text x="605" y="179" font-size="18" class="muted" text-anchor="end">78.8%</text>
+      <rect x="35" y="187" width="570" height="6" class="panel"/>
+      <rect x="35" y="187" width="449.44" height="6" class="accent"/>
+    </g><g>
+      <text x="35" y="219" font-size="18">HTML</text>
+      <text x="605" y="219" font-size="18" class="muted" text-anchor="end">9.9%</text>
+      <rect x="35" y="227" width="570" height="6" class="panel"/>
+      <rect x="35" y="227" width="56.16" height="6" class="high"/>
+    </g><g>
+      <text x="35" y="259" font-size="18">Python</text>
+      <text x="605" y="259" font-size="18" class="muted" text-anchor="end">7.3%</text>
+      <rect x="35" y="267" width="570" height="6" class="panel"/>
+      <rect x="35" y="267" width="41.83" height="6" class="high"/>
+    </g><g>
+      <text x="35" y="299" font-size="18">TypeScript</text>
+      <text x="605" y="299" font-size="18" class="muted" text-anchor="end">1.8%</text>
+      <rect x="35" y="307" width="570" height="6" class="panel"/>
+      <rect x="35" y="307" width="10.09" height="6" class="high"/>
+    </g><g>
+      <text x="35" y="339" font-size="18">CSS</text>
+      <text x="605" y="339" font-size="18" class="muted" text-anchor="end">1.7%</text>
+      <rect x="35" y="347" width="570" height="6" class="panel"/>
+      <rect x="35" y="347" width="9.89" height="6" class="high"/>
+    </g><g>
+      <text x="35" y="379" font-size="18">Other</text>
+      <text x="605" y="379" font-size="18" class="muted" text-anchor="end">0.5%</text>
+      <rect x="35" y="387" width="570" height="6" class="panel"/>
+      <rect x="35" y="387" width="2.59" height="6" class="high"/>
+    </g>
+
+</svg>

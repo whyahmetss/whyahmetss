@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-labelledby="title description">
+  <title id="title">EVERY / @whyahmetss</title>
+  <desc id="description">Founder / Builder. Building systems that outlast their creators. Artificial Intelligence, Software Development, Business Automation, Creative Technology, Digital Products.</desc>
+  <style>
+    svg { --ground:#0B0D10; --panel:#14171C; --ink:#F4F4F4; --muted:#90969E; --line:#30373C; --accent:#C5F36D; --low:#344523; --mid:#526E32; --high:#80A94B; }
+    @media (prefers-color-scheme: light) {
+      svg { --ground:#F4F6F0; --panel:#FFFFFF; --ink:#151C12; --muted:#4E584D; --line:#CCD4C7; --accent:#385720; --low:#C7DBAB; --mid:#A1C372; --high:#678D47; }
+    }
+    text { font-family:ui-monospace, 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; fill:#F4F4F4; fill:var(--ink); }
+    .rule { fill:none; stroke:#30373C; stroke:var(--line); }
+    .wire { fill:none; stroke:#90969E; stroke:var(--muted); }
+    .signal { fill:none; stroke:#C5F36D; stroke:var(--accent); }
+    .ground { fill:#0B0D10; fill:var(--ground); }
+    .panel { fill:#14171C; fill:var(--panel); }
+    .muted { fill:#90969E; fill:var(--muted); }
+    .accent { fill:#C5F36D; fill:var(--accent); }
+    .low { fill:#344523; fill:var(--low); }
+    .mid { fill:#526E32; fill:var(--mid); }
+    .high { fill:#80A94B; fill:var(--high); }
+    .label { font-weight:600; letter-spacing:1px; }
+    .bold { font-weight:700; }
+
+    @keyframes type { from { clip-path:inset(0 100% 0 0); } to { clip-path:inset(0); } }
+    @keyframes caret-travel { from { transform:translateX(-158px); } to { transform:translateX(0); } }
+    @keyframes blink { 50% { opacity:0; } }
+    @keyframes sweep { from { transform:translateY(-45px); opacity:.2; } to { transform:translateY(0); opacity:.85; } }
+    @media (prefers-reduced-motion: no-preference) {
+      .command { animation:type 1.12s steps(16,end) both; }
+      .cursor { animation:caret-travel 1.12s steps(16,end) both, blink .8s step-end 1.12s 4; }
+      .sweep { animation:sweep 1.65s cubic-bezier(.23,1,.32,1) both; }
+    }
+  </style>
+  <rect class="ground" width="640" height="420"/>
+  <rect class="rule" x=".5" y=".5" width="639" height="419"/>
+
+    <rect x="1" y="1" width="638" height="50" class="panel"/>
+    <path class="rule" d="M1 51.5H639"/>
+    <path class="signal" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" d="M49 20H37V32H49M37 26H46"/>
+    <text x="61" y="32" font-size="17" class="label">every / profile</text>
+    <text x="603" y="32" font-size="16" class="muted label" text-anchor="end">BUILD FOR TOMORROW.</text>
+    <defs>
+      <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
+        <path class="rule" opacity=".56" d="M22 0H0V22"/>
+      </pattern>
+    </defs>
+    <rect x="37" y="72" width="566" height="134" fill="url(#grid)"/>
+
+    <path class="rule" d="M485 73V208M488 143H603"/>
+    <path class="wire" opacity=".8" d="M500 89H514M500 89V103M589 89H603V103M500 176V190H514M589 190H603V176"/>
+    <g class="sweep" opacity=".85">
+      <path class="signal" d="M501 145.5H603"/>
+      <rect class="accent" x="544" y="141" width="9" height="9"/>
+    </g>
+    <g aria-hidden="true"><text x="41" y="100" font-size="21" class="accent bold">+</text><text x="55.5" y="100" font-size="21" class="accent bold">+</text><text x="70" y="100" font-size="21" class="accent bold">+</text><text x="84.5" y="100" font-size="21" class="accent bold">#</text><text x="99" y="100" font-size="21" class="accent bold">=</text><text x="128" y="100" font-size="21" class="accent bold">#</text><text x="186" y="100" font-size="21" class="accent bold">#</text><text x="215" y="100" font-size="21" class="accent bold">#</text><text x="229.5" y="100" font-size="21" class="accent bold">+</text><text x="244" y="100" font-size="21" class="accent bold">+</text><text x="258.5" y="100" font-size="21" class="accent bold">+</text><text x="273" y="100" font-size="21" class="accent bold">#</text><text x="302" y="100" font-size="21" class="accent bold">#</text><text x="316.5" y="100" font-size="21" class="accent bold">#</text><text x="331" y="100" font-size="21" class="accent bold">#</text><text x="345.5" y="100" font-size="21" class="accent bold">#</text><text x="389" y="100" font-size="21" class="accent bold">#</text><text x="447" y="100" font-size="21" class="accent bold">+</text>
+    <text x="41" y="115.5" font-size="21" class="accent bold">#</text><text x="128" y="115.5" font-size="21" class="accent bold">#</text><text x="186" y="115.5" font-size="21" class="accent bold">+</text><text x="215" y="115.5" font-size="21" class="accent bold">+</text><text x="302" y="115.5" font-size="21" class="accent bold">#</text><text x="360" y="115.5" font-size="21" class="accent bold">#</text><text x="389" y="115.5" font-size="21" class="accent bold">+</text><text x="447" y="115.5" font-size="21" class="accent bold">#</text>
+    <text x="41" y="131" font-size="21" class="accent bold">#</text><text x="128" y="131" font-size="21" class="accent bold">#</text><text x="186" y="131" font-size="21" class="accent bold">#</text><text x="215" y="131" font-size="21" class="accent bold">#</text><text x="302" y="131" font-size="21" class="accent bold">#</text><text x="360" y="131" font-size="21" class="accent bold">+</text><text x="403.5" y="131" font-size="21" class="accent bold">#</text><text x="432.5" y="131" font-size="21" class="accent bold">#</text>
+    <text x="41" y="146.5" font-size="21" class="accent bold">#</text><text x="55.5" y="146.5" font-size="21" class="accent bold">#</text><text x="70" y="146.5" font-size="21" class="accent bold">#</text><text x="84.5" y="146.5" font-size="21" class="accent bold">#</text><text x="142.5" y="146.5" font-size="21" class="accent bold">#</text><text x="171.5" y="146.5" font-size="21" class="accent bold">#</text><text x="215" y="146.5" font-size="21" class="accent bold">#</text><text x="229.5" y="146.5" font-size="21" class="accent bold">#</text><text x="244" y="146.5" font-size="21" class="accent bold">#</text><text x="258.5" y="146.5" font-size="21" class="accent bold">#</text><text x="302" y="146.5" font-size="21" class="accent bold">+</text><text x="316.5" y="146.5" font-size="21" class="accent bold">+</text><text x="331" y="146.5" font-size="21" class="accent bold">#</text><text x="345.5" y="146.5" font-size="21" class="accent bold">=</text><text x="418" y="146.5" font-size="21" class="accent bold">#</text>
+    <text x="41" y="162" font-size="21" class="accent bold">#</text><text x="142.5" y="162" font-size="21" class="accent bold">#</text><text x="171.5" y="162" font-size="21" class="accent bold">#</text><text x="215" y="162" font-size="21" class="accent bold">#</text><text x="302" y="162" font-size="21" class="accent bold">=</text><text x="331" y="162" font-size="21" class="accent bold">#</text><text x="418" y="162" font-size="21" class="accent bold">#</text>
+    <text x="41" y="177.5" font-size="21" class="accent bold">+</text><text x="157" y="177.5" font-size="21" class="accent bold">#</text><text x="215" y="177.5" font-size="21" class="accent bold">+</text><text x="302" y="177.5" font-size="21" class="accent bold">#</text><text x="345.5" y="177.5" font-size="21" class="accent bold">#</text><text x="418" y="177.5" font-size="21" class="accent bold">+</text>
+    <text x="41" y="193" font-size="21" class="accent bold">#</text><text x="55.5" y="193" font-size="21" class="accent bold">#</text><text x="70" y="193" font-size="21" class="accent bold">#</text><text x="84.5" y="193" font-size="21" class="accent bold">#</text><text x="99" y="193" font-size="21" class="accent bold">#</text><text x="157" y="193" font-size="21" class="accent bold">+</text><text x="215" y="193" font-size="21" class="accent bold">=</text><text x="229.5" y="193" font-size="21" class="accent bold">#</text><text x="244" y="193" font-size="21" class="accent bold">#</text><text x="258.5" y="193" font-size="21" class="accent bold">#</text><text x="273" y="193" font-size="21" class="accent bold">#</text><text x="302" y="193" font-size="21" class="accent bold">#</text><text x="360" y="193" font-size="21" class="accent bold">+</text><text x="418" y="193" font-size="21" class="accent bold">#</text></g>
+    <path class="rule" d="M37 230.5H603"/>
+    <text x="37" y="257" font-size="20" class="accent bold">›</text>
+    <text x="59" y="257" font-size="16" class="muted command" textLength="153.6" lengthAdjust="spacingAndGlyphs">identity --brief</text>
+    <rect x="219" y="244" width="8" height="16" class="accent cursor"/>
+    <text x="37" y="290" font-size="24" class="bold">@whyahmetss</text>
+    <text x="603" y="289" font-size="19" class="accent" text-anchor="end">Founder / Builder</text>
+    <text x="37" y="329" font-size="20">Building systems that outlast their creators.</text>
+    <text x="37" y="369" font-size="16" class="muted">Artificial Intelligence</text>
+    <text x="238" y="369" font-size="16" class="muted">Software Development</text>
+    <text x="37" y="394" font-size="16" class="muted">Business Automation</text>
+    <text x="238" y="394" font-size="16" class="muted">Creative Technology</text>
+    <text x="440" y="394" font-size="16" class="muted">Digital Products</text>
+</svg>
