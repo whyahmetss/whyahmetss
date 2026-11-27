@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="186" viewBox="0 0 640 186" role="img" aria-labelledby="title description">
   <title id="title">Languages</title>
-  <desc id="description">6 public repositories. JavaScript 78.8%, HTML 9.9%, Python 7.3%, TypeScript 1.8%, CSS 1.7%, Other 0.5%.</desc>
+  <desc id="description">6 public repositories. JavaScript 78.9%, HTML 9.8%, Python 7.3%, TypeScript 1.8%, CSS 1.7%, Other 0.5%.</desc>
   <defs></defs>
   <style>
     svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
@@ -37,12 +37,12 @@
     <text x="36" y="44" font-size="11" class="caps muted">LANGUAGES</text>
     <text x="604" y="44" font-size="12" class="mono muted" text-anchor="end">6 public repositories</text>
     <rect x="36" y="78" width="568" height="10" class="panel" rx="3"/>
-    <rect x="36.00" y="78" width="445.86" height="10" rx="3" style="fill:#4ADE80;fill:var(--a1)"/><rect x="483.86" y="78" width="53.96" height="10" rx="3" style="fill:#2DD4BF;fill:var(--a2)"/><rect x="539.82" y="78" width="39.69" height="10" rx="3" style="fill:#3DDC97;fill:#3DDC97"/><rect x="581.51" y="78" width="8.05" height="10" rx="3" style="fill:#F5B54A;fill:#F5B54A"/><rect x="591.56" y="78" width="7.86" height="10" rx="3" style="fill:#F472B6;fill:#F472B6"/><rect x="601.42" y="78" width="0.58" height="10" rx="3" style="fill:#80858E;fill:#80858E"/>
+    <rect x="36.00" y="78" width="445.99" height="10" rx="3" style="fill:#4ADE80;fill:var(--a1)"/><rect x="483.99" y="78" width="53.90" height="10" rx="3" style="fill:#2DD4BF;fill:var(--a2)"/><rect x="539.90" y="78" width="39.64" height="10" rx="3" style="fill:#3DDC97;fill:#3DDC97"/><rect x="581.54" y="78" width="8.04" height="10" rx="3" style="fill:#F5B54A;fill:#F5B54A"/><rect x="591.58" y="78" width="7.85" height="10" rx="3" style="fill:#F472B6;fill:#F472B6"/><rect x="601.42" y="78" width="0.58" height="10" rx="3" style="fill:#80858E;fill:#80858E"/>
     <circle cx="41" cy="120" r="4.5" style="fill:#4ADE80;fill:var(--a1)"/>
       <text x="54" y="124" font-size="13" class="w6">JavaScript</text>
-      <text x="206" y="124" font-size="12" class="mono muted" text-anchor="end">78.8%</text><circle cx="233" cy="120" r="4.5" style="fill:#2DD4BF;fill:var(--a2)"/>
+      <text x="206" y="124" font-size="12" class="mono muted" text-anchor="end">78.9%</text><circle cx="233" cy="120" r="4.5" style="fill:#2DD4BF;fill:var(--a2)"/>
       <text x="246" y="124" font-size="13" class="w6">HTML</text>
-      <text x="398" y="124" font-size="12" class="mono muted" text-anchor="end">9.9%</text><circle cx="425" cy="120" r="4.5" style="fill:#3DDC97;fill:#3DDC97"/>
+      <text x="398" y="124" font-size="12" class="mono muted" text-anchor="end">9.8%</text><circle cx="425" cy="120" r="4.5" style="fill:#3DDC97;fill:#3DDC97"/>
       <text x="438" y="124" font-size="13" class="w6">Python</text>
       <text x="590" y="124" font-size="12" class="mono muted" text-anchor="end">7.3%</text><circle cx="41" cy="148" r="4.5" style="fill:#F5B54A;fill:#F5B54A"/>
       <text x="54" y="152" font-size="13" class="w6">TypeScript</text>
