@@ -1,55 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="186" viewBox="0 0 640 186" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="180" viewBox="0 0 800 180" role="img" aria-labelledby="title description">
   <title id="title">Languages</title>
   <desc id="description">6 public repositories. JavaScript 78.9%, HTML 9.8%, Python 7.3%, TypeScript 1.8%, CSS 1.7%, Other 0.5%.</desc>
   <defs></defs>
-  <style>
-    svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
-          --a1:#4ADE80; --a2:#2DD4BF; --ok:#3DDC97; --warn:#F5B54A; }
-    @media (prefers-color-scheme: light) {
-      svg { --ground:#FFFFFF; --panel:#F7F8FA; --raise:#FFFFFF; --ink:#0B0D12; --soft:#2E333B; --muted:#646A74; --line:#E7E9ED; --edge:#D9DCE1;
-            --a1:#15803D; --a2:#0F766E; --ok:#12A66B; --warn:#C98512; }
-    }
-    text { font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill:#F2F3F5; fill:var(--ink); }
-    .mono { font-family:ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }
-    .soft { fill:#C5C8CE; fill:var(--soft); }
-    .muted { fill:#80858E; fill:var(--muted); }
-    .ground { fill:#08090B; fill:var(--ground); }
-    .panel { fill:#0F1114; fill:var(--panel); }
-    .raise { fill:#15181C; fill:var(--raise); }
-    .line { fill:none; stroke:#1E2126; stroke:var(--line); }
-    .edge { fill:none; stroke:#2A2E34; stroke:var(--edge); }
-    .a1 { fill:#4ADE80; fill:var(--a1); }
-    .a2 { fill:#2DD4BF; fill:var(--a2); }
-    .s-a1 { fill:none; stroke:#4ADE80; stroke:var(--a1); }
-    .ok { fill:#3DDC97; fill:var(--ok); }
-    .warn { fill:#F5B54A; fill:var(--warn); }
-    .g-a1 { stop-color:#4ADE80; stop-color:var(--a1); }
-    .g-a2 { stop-color:#2DD4BF; stop-color:var(--a2); }
-    .g-glow { stop-color:#4ADE80; stop-color:var(--a1); }
-    .w5 { font-weight:500; } .w6 { font-weight:600; } .w7 { font-weight:700; }
-    .caps { letter-spacing:1.6px; font-weight:600; }
-
-  </style>
-  <rect class="ground" width="640" height="186" rx="14"/>
-
-  <rect class="edge" x=".5" y=".5" width="639" height="185" rx="13.5"/>
-
-    <text x="36" y="44" font-size="11" class="caps muted">LANGUAGES</text>
-    <text x="604" y="44" font-size="12" class="mono muted" text-anchor="end">6 public repositories</text>
-    <rect x="36" y="78" width="568" height="10" class="panel" rx="3"/>
-    <rect x="36.00" y="78" width="445.99" height="10" rx="3" style="fill:#4ADE80;fill:var(--a1)"/><rect x="483.99" y="78" width="53.90" height="10" rx="3" style="fill:#2DD4BF;fill:var(--a2)"/><rect x="539.90" y="78" width="39.64" height="10" rx="3" style="fill:#3DDC97;fill:#3DDC97"/><rect x="581.54" y="78" width="8.04" height="10" rx="3" style="fill:#F5B54A;fill:#F5B54A"/><rect x="591.58" y="78" width="7.85" height="10" rx="3" style="fill:#F472B6;fill:#F472B6"/><rect x="601.42" y="78" width="0.58" height="10" rx="3" style="fill:#80858E;fill:#80858E"/>
-    <circle cx="41" cy="120" r="4.5" style="fill:#4ADE80;fill:var(--a1)"/>
-      <text x="54" y="124" font-size="13" class="w6">JavaScript</text>
-      <text x="206" y="124" font-size="12" class="mono muted" text-anchor="end">78.9%</text><circle cx="233" cy="120" r="4.5" style="fill:#2DD4BF;fill:var(--a2)"/>
-      <text x="246" y="124" font-size="13" class="w6">HTML</text>
-      <text x="398" y="124" font-size="12" class="mono muted" text-anchor="end">9.8%</text><circle cx="425" cy="120" r="4.5" style="fill:#3DDC97;fill:#3DDC97"/>
-      <text x="438" y="124" font-size="13" class="w6">Python</text>
-      <text x="590" y="124" font-size="12" class="mono muted" text-anchor="end">7.3%</text><circle cx="41" cy="148" r="4.5" style="fill:#F5B54A;fill:#F5B54A"/>
-      <text x="54" y="152" font-size="13" class="w6">TypeScript</text>
-      <text x="206" y="152" font-size="12" class="mono muted" text-anchor="end">1.8%</text><circle cx="233" cy="148" r="4.5" style="fill:#F472B6;fill:#F472B6"/>
-      <text x="246" y="152" font-size="13" class="w6">CSS</text>
-      <text x="398" y="152" font-size="12" class="mono muted" text-anchor="end">1.7%</text><circle cx="425" cy="148" r="4.5" style="fill:#80858E;fill:#80858E"/>
-      <text x="438" y="152" font-size="13" class="w6">Other</text>
-      <text x="590" y="152" font-size="12" class="mono muted" text-anchor="end">0.5%</text>
-
+  <rect width="800" height="180" rx="14" fill="#08090B"/>
+  <rect x=".5" y=".5" width="799" height="179" rx="13.5" fill="none" stroke="#2A2E34"/>
+    <text x="40" y="42" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="11" fill="#80858E" font-weight="700" letter-spacing="1.6">LANGUAGES</text>
+    <text x="760" y="42" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="12.5" fill="#80858E" text-anchor="end" xml:space="preserve">6 public repositories</text>
+    <rect x="40" y="70" width="720" height="10" fill="#0F1114" rx="3"/>
+    <rect x="40" y="70" width="565.88" height="10" fill="#4ADE80" rx="3"/><rect x="607.88" y="70" width="68.86" height="10" fill="#2DD4BF" rx="3"/><rect x="678.74" y="70" width="50.78" height="10" fill="#60A5FA" rx="3"/><rect x="731.52" y="70" width="10.73" height="10" fill="#F5B54A" rx="3"/><rect x="744.25" y="70" width="10.48" height="10" fill="#F472B6" rx="3"/><rect x="756.73" y="70" width="1.27" height="10" fill="#80858E" rx="3"/>
+    <circle cx="45" cy="113.5" r="4.5" fill="#4ADE80"/>
+      <text x="58" y="118" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="13.5" fill="#F2F3F5" font-weight="600">JavaScript</text>
+      <text x="248" y="118" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="12.5" fill="#80858E" text-anchor="end" xml:space="preserve">78.9%</text><circle cx="285" cy="113.5" r="4.5" fill="#2DD4BF"/>
+      <text x="298" y="118" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="13.5" fill="#F2F3F5" font-weight="600">HTML</text>
+      <text x="488" y="118" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="12.5" fill="#80858E" text-anchor="end" xml:space="preserve">9.8%</text><circle cx="525" cy="113.5" r="4.5" fill="#60A5FA"/>
+      <text x="538" y="118" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="13.5" fill="#F2F3F5" font-weight="600">Python</text>
+      <text x="760" y="118" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="12.5" fill="#80858E" text-anchor="end" xml:space="preserve">7.3%</text><circle cx="45" cy="143.5" r="4.5" fill="#F5B54A"/>
+      <text x="58" y="148" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="13.5" fill="#F2F3F5" font-weight="600">TypeScript</text>
+      <text x="248" y="148" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="12.5" fill="#80858E" text-anchor="end" xml:space="preserve">1.8%</text><circle cx="285" cy="143.5" r="4.5" fill="#F472B6"/>
+      <text x="298" y="148" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="13.5" fill="#F2F3F5" font-weight="600">CSS</text>
+      <text x="488" y="148" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="12.5" fill="#80858E" text-anchor="end" xml:space="preserve">1.7%</text><circle cx="525" cy="143.5" r="4.5" fill="#80858E"/>
+      <text x="538" y="148" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="13.5" fill="#F2F3F5" font-weight="600">Other</text>
+      <text x="760" y="148" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="12.5" fill="#80858E" text-anchor="end" xml:space="preserve">0.5%</text>
 </svg>

@@ -1,47 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="72" viewBox="0 0 640 72" role="img" aria-labelledby="title description">
-  <title id="title">EVERY</title>
-  <desc id="description">Build for tomorrow.</desc>
-  <defs><linearGradient id="grad10" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" class="g-a1"/><stop offset="1" class="g-a2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="84" viewBox="0 0 800 84" role="img" aria-labelledby="title description">
+  <title id="title">ARAMETRIC</title>
+  <desc id="description">Build systems that outlast you.</desc>
+  <defs><radialGradient id="glow" cx="96%" cy="50%" r="40%">
+      <stop offset="0" stop-color="#4ADE80" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#4ADE80" stop-opacity="0"/>
+    </radialGradient><linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4ADE80"/><stop offset="1" stop-color="#2DD4BF"/>
     </linearGradient></defs>
-  <style>
-    svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
-          --a1:#4ADE80; --a2:#2DD4BF; --ok:#3DDC97; --warn:#F5B54A; }
-    @media (prefers-color-scheme: light) {
-      svg { --ground:#FFFFFF; --panel:#F7F8FA; --raise:#FFFFFF; --ink:#0B0D12; --soft:#2E333B; --muted:#646A74; --line:#E7E9ED; --edge:#D9DCE1;
-            --a1:#15803D; --a2:#0F766E; --ok:#12A66B; --warn:#C98512; }
-    }
-    text { font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill:#F2F3F5; fill:var(--ink); }
-    .mono { font-family:ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }
-    .soft { fill:#C5C8CE; fill:var(--soft); }
-    .muted { fill:#80858E; fill:var(--muted); }
-    .ground { fill:#08090B; fill:var(--ground); }
-    .panel { fill:#0F1114; fill:var(--panel); }
-    .raise { fill:#15181C; fill:var(--raise); }
-    .line { fill:none; stroke:#1E2126; stroke:var(--line); }
-    .edge { fill:none; stroke:#2A2E34; stroke:var(--edge); }
-    .a1 { fill:#4ADE80; fill:var(--a1); }
-    .a2 { fill:#2DD4BF; fill:var(--a2); }
-    .s-a1 { fill:none; stroke:#4ADE80; stroke:var(--a1); }
-    .ok { fill:#3DDC97; fill:var(--ok); }
-    .warn { fill:#F5B54A; fill:var(--warn); }
-    .g-a1 { stop-color:#4ADE80; stop-color:var(--a1); }
-    .g-a2 { stop-color:#2DD4BF; stop-color:var(--a2); }
-    .g-glow { stop-color:#4ADE80; stop-color:var(--a1); }
-    .w5 { font-weight:500; } .w6 { font-weight:600; } .w7 { font-weight:700; }
-    .caps { letter-spacing:1.6px; font-weight:600; }
-
-  </style>
-  <rect class="ground" width="640" height="72" rx="14"/>
-
-  <rect class="edge" x=".5" y=".5" width="639" height="71" rx="13.5"/>
-
-    <g transform="translate(36 26)">
-      <rect width="20" height="4" rx="2" fill="url(#grad10)"/>
-      <rect y="8" width="13.200000000000001" height="4" rx="2" fill="url(#grad10)"/>
-      <rect y="16" width="20" height="4" rx="2" fill="url(#grad10)"/>
+  <rect width="800" height="84" rx="14" fill="#08090B"/>
+  <rect width="800" height="84" rx="14" fill="url(#glow)"/>
+  <rect x=".5" y=".5" width="799" height="83" rx="13.5" fill="none" stroke="#2A2E34"/>
+    <g transform="translate(40 30)" fill="none" stroke="url(#brand)" stroke-width="4.36" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2.18 21.82L12 2.18L21.82 21.82"/>
+      <path d="M7.2 15.84H16.8"/>
     </g>
-    <text x="66" y="42" font-size="14" class="w7" letter-spacing="3">EVERY</text>
-    <text x="604" y="42" font-size="14" class="muted w5" text-anchor="end">Build for tomorrow.</text>
-
+    <text x="76" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="15" fill="#F2F3F5" font-weight="800" letter-spacing="3" xml:space="preserve">ARAMETRIC</text>
+    <text x="185.8" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="12" fill="#80858E" xml:space="preserve">· Creative &amp; Technology Studio</text>
+    <text x="760" y="49" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="17" fill="#F2F3F5" font-weight="700" text-anchor="end" letter-spacing="-0.2">Build systems that outlast you.</text>
 </svg>

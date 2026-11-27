@@ -1,119 +1,131 @@
-// EVERY profile artwork — v2 ("quiet premium").
-// Every function returns a self-contained SVG string. No external fonts or images,
-// so GitHub's image proxy renders them the same everywhere. Light/dark via prefers-color-scheme.
+// ARAMETRIC profile artwork — v4.
+// Every function returns a self-contained SVG string: presentation attributes only (no <style>, no classes),
+// no external fonts or images, SMIL for motion. GitHub serves these through its image proxy as <img>,
+// where SMIL runs and inline attributes render identically everywhere.
+// Animations always end in the element's static state, so renderers without SMIL show the finished frame.
 
-const WIDTH = 640;
-const SANS = "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif";
-const MONO = "ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace";
+const W = 800, L = 40, R = 760;
+const SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+const MONO = "ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace";
 const NUMBER = new Intl.NumberFormat("en-US");
+
+const C = {
+  ground: "#08090B", panel: "#0F1114", raise: "#15181C", ink: "#F2F3F5", soft: "#C5C8CE",
+  muted: "#80858E", line: "#1E2126", edge: "#2A2E34", a1: "#4ADE80", a2: "#2DD4BF", warn: "#F5B54A",
+};
 
 export function escapeXml(value) {
   return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+    .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
 }
+
+const fmt = n => Number(n.toFixed(2)).toString();
 
 let uid = 0;
 const id = prefix => `${prefix}${++uid}`;
 
-function svg(title, description, height, body, { width = WIDTH, css = "", defs = "", glow = null } = {}) {
-  const glowId = id("glow");
-  const glowLayer = glow
+function attrs(map) {
+  return Object.entries(map).filter(([, v]) => v !== undefined && v !== null && v !== false)
+    .map(([k, v]) => ` ${k}="${escapeXml(v)}"`).join("");
+}
+
+function svg(title, description, width, height, body, { defs = "", glow = null } = {}) {
+  const glowId = "glow";
+  const glowDef = glow
     ? `<radialGradient id="${glowId}" cx="${glow.cx}" cy="${glow.cy}" r="${glow.r ?? "60%"}">
-      <stop offset="0" class="g-glow" stop-opacity="${glow.opacity ?? .22}"/>
-      <stop offset="1" class="g-glow" stop-opacity="0"/>
+      <stop offset="0" stop-color="${glow.color ?? C.a1}" stop-opacity="${glow.opacity ?? .16}"/>
+      <stop offset="1" stop-color="${glow.color ?? C.a1}" stop-opacity="0"/>
     </radialGradient>`
     : "";
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title description">
   <title id="title">${escapeXml(title)}</title>
   <desc id="description">${escapeXml(description)}</desc>
-  <defs>${glowLayer}${defs}</defs>
-  <style>
-    svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
-          --a1:#4ADE80; --a2:#2DD4BF; --ok:#3DDC97; --warn:#F5B54A; }
-    @media (prefers-color-scheme: light) {
-      svg { --ground:#FFFFFF; --panel:#F7F8FA; --raise:#FFFFFF; --ink:#0B0D12; --soft:#2E333B; --muted:#646A74; --line:#E7E9ED; --edge:#D9DCE1;
-            --a1:#15803D; --a2:#0F766E; --ok:#12A66B; --warn:#C98512; }
-    }
-    text { font-family:${SANS}; fill:#F2F3F5; fill:var(--ink); }
-    .mono { font-family:${MONO}; }
-    .soft { fill:#C5C8CE; fill:var(--soft); }
-    .muted { fill:#80858E; fill:var(--muted); }
-    .ground { fill:#08090B; fill:var(--ground); }
-    .panel { fill:#0F1114; fill:var(--panel); }
-    .raise { fill:#15181C; fill:var(--raise); }
-    .line { fill:none; stroke:#1E2126; stroke:var(--line); }
-    .edge { fill:none; stroke:#2A2E34; stroke:var(--edge); }
-    .a1 { fill:#4ADE80; fill:var(--a1); }
-    .a2 { fill:#2DD4BF; fill:var(--a2); }
-    .s-a1 { fill:none; stroke:#4ADE80; stroke:var(--a1); }
-    .ok { fill:#3DDC97; fill:var(--ok); }
-    .warn { fill:#F5B54A; fill:var(--warn); }
-    .g-a1 { stop-color:#4ADE80; stop-color:var(--a1); }
-    .g-a2 { stop-color:#2DD4BF; stop-color:var(--a2); }
-    .g-glow { stop-color:#4ADE80; stop-color:var(--a1); }
-    .w5 { font-weight:500; } .w6 { font-weight:600; } .w7 { font-weight:700; }
-    .caps { letter-spacing:1.6px; font-weight:600; }
-    ${css}
-  </style>
-  <rect class="ground" width="${width}" height="${height}" rx="14"/>
+  <defs>${glowDef}${defs}</defs>
+  <rect width="${width}" height="${height}" rx="14" fill="${C.ground}"/>
   ${glow ? `<rect width="${width}" height="${height}" rx="14" fill="url(#${glowId})"/>` : ""}
-  <rect class="edge" x=".5" y=".5" width="${width - 1}" height="${height - 1}" rx="13.5"/>
+  <rect x=".5" y=".5" width="${width - 1}" height="${height - 1}" rx="13.5" fill="none" stroke="${C.edge}"/>
   ${body}
 </svg>
-`.replace(/^[ \t]+$/gm, "");
+`.replace(/^[ \t]+$/gm, "").replace(/\n{2,}/g, "\n");
 }
 
-function text(x, y, value, size, classes = "", attributes = "") {
-  // CSS "text { fill }" outranks presentation attributes, so gradient/colour fills must be inline styles.
-  attributes = attributes.replace(/fill="([^"]+)"/g, 'style="fill:$1"');
-  return `<text x="${x}" y="${y}" font-size="${size}"${classes ? ` class="${classes}"` : ""}${attributes ? ` ${attributes}` : ""}>${escapeXml(value)}</text>`;
+// <text> with every style as an attribute. `content` may be raw tspans when `raw` is set.
+function text(x, y, content, size, { fill = C.ink, weight, mono = false, anchor, ls, opacity, raw = false, extra = "", children = "" } = {}) {
+  return `<text${attrs({
+    x: fmt(x), y: fmt(y), "font-family": mono ? MONO : SANS, "font-size": size, fill, "font-weight": weight,
+    "text-anchor": anchor, "letter-spacing": ls, opacity, "xml:space": mono ? "preserve" : undefined,
+  })}${extra}>${raw ? content : escapeXml(content)}${children}</text>`;
 }
 
-function rect(x, y, width, height, classes = "", attributes = "") {
-  return `<rect x="${x}" y="${y}" width="${width}" height="${height}" class="${classes}"${attributes ? ` ${attributes}` : ""}/>`;
+const tspan = (value, fill, extra = {}) => `<tspan${attrs({ fill, ...extra })}>${escapeXml(value)}</tspan>`;
+
+function rect(x, y, width, height, fill, extra = {}) {
+  return `<rect${attrs({ x: fmt(x), y: fmt(y), width: fmt(width), height: fmt(height), fill, ...extra })}/>`;
 }
 
-function gradient(gid, x2 = "1", y2 = "0") {
+function gradient(gid, from = C.a1, to = C.a2, x2 = "1", y2 = "0") {
   return `<linearGradient id="${gid}" x1="0" y1="0" x2="${x2}" y2="${y2}">
-      <stop offset="0" class="g-a1"/><stop offset="1" class="g-a2"/>
+      <stop offset="0" stop-color="${from}"/><stop offset="1" stop-color="${to}"/>
     </linearGradient>`;
 }
 
-// The EVERY mark: an "E" built from three bars, the middle one shorter.
+// Fade an element in after `delay` seconds. Starts at 0 so nothing flashes, freezes at full opacity.
+function fadeIn(delay, duration = .35) {
+  const total = delay + duration;
+  return `<animate attributeName="opacity" values="0;0;1" keyTimes="0;${fmt(delay / total)};1" dur="${fmt(total)}s" fill="freeze"/>`;
+}
+
+// Typewriter: a clip rect that grows one character at a time. Final width is generous so no glyph is clipped.
+function typeClip(cid, x, y, height, chars, charW, delay, cps) {
+  const steps = chars + 1;
+  const duration = chars / cps;
+  const total = delay + duration;
+  const values = ["0", ...Array.from({ length: steps }, (_, i) => fmt(i * charW)), "900"];
+  const times = ["0", ...Array.from({ length: steps }, (_, i) => fmt((delay + duration * i / chars) / total)), "1"];
+  return {
+    end: total,
+    def: `<clipPath id="${cid}"><rect x="${fmt(x - 2)}" y="${fmt(y)}" width="900" height="${height}">
+        <animate attributeName="width" values="${values.join(";")}" keyTimes="${times.join(";")}" dur="${fmt(total)}s" calcMode="discrete" fill="freeze"/>
+      </rect></clipPath>`,
+  };
+}
+
+// The ARAMETRIC mark: an "A" apex over a measured baseline — a chevron and a crossbar.
 function mark(x, y, size, fill) {
-  const bar = size / 5;
-  return `<g transform="translate(${x} ${y})">
-      <rect width="${size}" height="${bar}" rx="${bar / 2}" fill="${fill}"/>
-      <rect y="${size / 2 - bar / 2}" width="${size * .66}" height="${bar}" rx="${bar / 2}" fill="${fill}"/>
-      <rect y="${size - bar}" width="${size}" height="${bar}" rx="${bar / 2}" fill="${fill}"/>
+  const s = size, sw = s / 5.5;
+  return `<g transform="translate(${fmt(x)} ${fmt(y)})" fill="none" stroke="${fill}" stroke-width="${fmt(sw)}" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M${fmt(sw / 2)} ${fmt(s - sw / 2)}L${fmt(s / 2)} ${fmt(sw / 2)}L${fmt(s - sw / 2)} ${fmt(s - sw / 2)}"/>
+      <path d="M${fmt(s * .3)} ${fmt(s * .66)}H${fmt(s * .7)}"/>
     </g>`;
 }
 
-function pill(x, y, label, { dot = null, mono = false } = {}) {
-  const w = Math.round(label.length * (mono ? 7.4 : 6.75) + (dot ? 34 : 24));
+// Status dot: full circle for live (with a soft pulse ring), half-filled for in-development.
+function statusDot(cx, cy, r, color, half) {
+  if (half) {
+    return `<circle cx="${fmt(cx)}" cy="${fmt(cy)}" r="${fmt(r - .6)}" fill="none" stroke="${color}" stroke-width="1.2"/>
+      <path d="M${fmt(cx)} ${fmt(cy - r + .6)}A${fmt(r - .6)} ${fmt(r - .6)} 0 0 0 ${fmt(cx)} ${fmt(cy + r - .6)}Z" fill="${color}"/>`;
+  }
+  return `<circle cx="${fmt(cx)}" cy="${fmt(cy)}" r="${fmt(r)}" fill="${color}" opacity=".35">
+        <animate attributeName="r" values="${fmt(r)};${fmt(r * 2.4)};${fmt(r * 2.4)}" keyTimes="0;.6;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values=".45;0;0" keyTimes="0;.6;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="${fmt(cx)}" cy="${fmt(cy)}" r="${fmt(r)}" fill="${color}"/>`;
+}
+
+function badge(x, y, label, color, half) {
+  const width = Math.round(label.length * 7.3 + 36);
   return {
-    width: w,
+    width,
     svg: `<g>
-      ${rect(x, y, w, 26, "raise", 'rx="13"')}
-      ${rect(x + .5, y + .5, w - 1, 25, "edge", 'rx="12.5"')}
-      ${dot ? `<circle cx="${x + 14}" cy="${y + 13}" r="3.5" class="${dot}"/>` : ""}
-      ${text(x + (dot ? 25 : 12), y + 17.5, label, 12, `${mono ? "mono " : ""}soft w5`)}
+      ${rect(x, y, width, 26, color, { rx: 13, "fill-opacity": ".1" })}
+      ${rect(x + .5, y + .5, width - 1, 25, "none", { rx: 12.5, stroke: color, "stroke-opacity": ".55" })}
+      ${statusDot(x + 15, y + 13, 4, color, half)}
+      ${text(x + 27, y + 17.5, label, 11.5, { fill: color, weight: 700, mono: true, ls: 1 })}
     </g>`,
   };
 }
 
-function pillRow(x, y, labels, maxWidth, options) {
-  let cx = x, cy = y;
-  const out = [];
-  for (const label of labels) {
-    const probe = pill(0, 0, label, options);
-    if (cx + probe.width > x + maxWidth) { cx = x; cy += 34; }
-    out.push(pill(cx, cy, label, options).svg);
-    cx += probe.width + 8;
-  }
-  return out.join("");
-}
-
+// ── Hero ────────────────────────────────────────────────────────────────────────────────────────────
 
 // Identicon of @whyahmetss (5×5, mirrored), rendered as an ASCII portrait.
 const IDENTICON = ["#.#.#", "..#..", ".#.#.", "#####", "#...#"];
@@ -125,7 +137,6 @@ function portrait(cellW, cellH) {
     let line = "";
     for (let c = 0; c < IDENTICON[0].length * cellW; c++) {
       const on = IDENTICON[Math.floor(r / cellH)][Math.floor(c / cellW)] === "#";
-      const edge = r % cellH === 0 || c % cellW === 0;
       line += on ? RAMP[(r * 7 + c * 3) % RAMP.length] : ((r * 3 + c) % 9 === 0 ? "·" : " ");
     }
     rows.push(line);
@@ -133,189 +144,287 @@ function portrait(cellW, cellH) {
   return rows;
 }
 
+const STACK = ["TypeScript", "Node.js", "Next.js", "Python", "FFmpeg", "HyperFrames"];
 const INFO = [
+  ["User", "ahmet@arametric"],
   ["Role", "Founder / Builder"],
-  ["Focus", "AI · automation · creative tech"],
-  ["Products", "SıraGo (live) · Creative Engine (beta)"],
-  ["Stack.Frontend", "React, TypeScript"],
-  ["Stack.Backend", "Node.js, Python"],
-  ["Stack.Database", "PostgreSQL"],
-  ["Environment", "git, vscode, claude code"],
-  ["Website", "sırago.com"],
-  ["Motto", "Build systems that outlast you."],
+  ["Studio", "Arametric"],
+  ["Based", "İstanbul"],
+  ["Stack", STACK.join(", ")],
+  ["Shipping", "SıraGO, Creative Engine"],
 ];
+const MOTTO = "Build systems that outlast you.";
 const BLOCKS = ["#1F2328", "#F87171", "#4ADE80", "#FACC15", "#60A5FA", "#C084FC", "#2DD4BF", "#E5E7EB"];
 
-function reveal(i, base = .25, step = .11) {
-  return `style="animation-delay:${(base + i * step).toFixed(2)}s"`;
+// Split the info rows into terminal lines: aligned keys, the stack wrapped neofetch-style.
+function infoLines(maxChars) {
+  const pad = Math.max(...INFO.map(([k]) => k.length)) + 2;
+  const lines = [];
+  for (const [key, value] of INFO) {
+    const label = `${key}:`.padEnd(pad);
+    const parts = key === "Stack" ? STACK.map((s, i) => s + (i < STACK.length - 1 ? "," : "")) : [value];
+    let current = "";
+    let first = true;
+    const flush = () => { lines.push({ key: first ? label : " ".repeat(pad), value: current, field: key }); first = false; current = ""; };
+    for (const part of parts) {
+      const next = current ? `${current} ${part}` : part;
+      if (current && pad + next.length > maxChars) flush();
+      current = current ? `${current} ${part}` : part;
+    }
+    flush();
+  }
+  return lines;
 }
 
-const TERMINAL_CSS = `
-    .ln { opacity:1; }
-    .cur { fill:#4ADE80; fill:var(--a1); }
-    .key { fill:#4ADE80; fill:var(--a1); font-weight:700; }
-    .art { fill:#4ADE80; fill:var(--a1); }
-    @keyframes in { from { opacity:0; transform:translateX(-6px); } to { opacity:1; transform:none; } }
-    @keyframes blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
-    @media (prefers-reduced-motion: no-preference) {
-      .ln { opacity:0; animation:in .35s ease-out forwards; }
-      .cur { animation:blink 1.05s steps(1) infinite; }
-    }`;
+function infoValue(line) {
+  if (line.field !== "Shipping") return tspan(line.value, C.soft);
+  return `${tspan("SıraGO", C.a1, { "font-weight": 700 })}${tspan(", ", C.soft)}${tspan("Creative Engine", C.a2, { "font-weight": 700 })}`;
+}
 
-function chrome(width) {
-  return `${rect(0, 0, width, 36, "panel", 'rx="14"')}${rect(0, 22, width, 14, "panel")}
-    <path class="line" d="M0 36.5H${width}"/>
+function chrome(width, title) {
+  return `${rect(0, 0, width, 36, C.panel, { rx: 14 })}${rect(0, 22, width, 14, C.panel)}
+    <path d="M0 36.5H${width}" stroke="${C.line}"/>
     <circle cx="22" cy="18" r="5.5" fill="#F87171"/><circle cx="40" cy="18" r="5.5" fill="#FACC15"/><circle cx="58" cy="18" r="5.5" fill="#4ADE80"/>
-    ${text(width / 2, 22.5, "whyahmetss — zsh — every", 11.5, "mono muted", 'text-anchor="middle"')}`;
+    ${text(width / 2, 22.5, title, 11.5, { fill: C.muted, mono: true, anchor: "middle" })}`;
+}
+
+// Lays out the terminal session. Each line types after the previous one; the cursor blinks once typing ends.
+function terminal({ x, y, size, lead, maxChars, gid, titleSize }) {
+  const charW = size * .6;
+  const cps = 55;
+  let clock = .55;
+  const defs = [];
+  const out = [];
+  const typed = (lineY, chars, content, opts) => {
+    const cid = id("t");
+    const clip = typeClip(cid, x, lineY - size - 2, size + 8, chars, opts.charW ?? charW, clock, opts.cps ?? cps);
+    defs.push(clip.def);
+    out.push(`<g clip-path="url(#${cid})">${content}</g>`);
+    clock = clip.end + .06;
+  };
+
+  // Title: brand + studio line.
+  const titleY = y;
+  typed(titleY, 9, text(x, titleY, "ARAMETRIC", titleSize, { fill: `url(#${gid})`, weight: 800, mono: true, ls: 2 }),
+    { charW: titleSize * .6 + 2, cps: 30 });
+  const subY = titleY + 22;
+  const sub = "Creative & Technology Studio";
+  typed(subY, sub.length, text(x, subY, sub, size - 1, { fill: C.muted, mono: true }), { charW: (size - 1) * .6 });
+  out.push(`<path d="M${x} ${subY + 12.5}H${x + maxChars * charW}" stroke="${C.a1}" stroke-opacity=".6">${fadeIn(clock - .2)}</path>`);
+
+  let lineY = subY + 12 + lead + 4;
+  for (const line of infoLines(maxChars)) {
+    const content = text(x, lineY, `${tspan(line.key, C.a1, { "font-weight": 700 })}${infoValue(line)}`, size, { mono: true, raw: true });
+    typed(lineY, line.key.length + line.value.length, content, {});
+    lineY += lead;
+  }
+
+  const blocksY = lineY - lead + 18;
+  const bw = size * 1.6, bh = size;
+  out.push(`<g>${fadeIn(clock)}${BLOCKS.map((c, i) => rect(x + i * (bw + 4), blocksY, bw, bh, c, { rx: 3 })).join("")}</g>`);
+  clock += .25;
+
+  const p1 = blocksY + bh + lead + 8;
+  const promptTop = "┌──(ahmet@arametric)-[~]";
+  typed(p1, promptTop.length, text(x, p1, promptTop, size - .5, { fill: C.muted, mono: true }), { cps: 90 });
+  const p2 = p1 + lead - 4;
+  const command = "build --systems-that-outlast-you";
+  const prompt = `${tspan("└─$ ", C.muted)}${tspan(command, C.ink)}`;
+  typed(p2, command.length + 4, text(x, p2, prompt, size - .5, { mono: true, raw: true }), { cps: 38 });
+
+  const blinkAt = clock;
+  const cursor = `<tspan fill="${C.a1}"> █<animate attributeName="fill-opacity" values="0;0" dur="${fmt(blinkAt)}s"/><animate attributeName="fill-opacity" values="1;0" dur="1.05s" begin="${fmt(blinkAt)}s" calcMode="discrete" repeatCount="indefinite"/></tspan>`;
+  // The cursor sits in its own text run, placed after the command so it follows real glyph widths.
+  out.push(text(x, p2, `${tspan("└─$ " + command, C.ink, { "fill-opacity": 0 })}${cursor}`, size - .5, { mono: true, raw: true }));
+
+  return { svg: out.join("\n    "), defs: defs.join(""), bottom: p2 };
 }
 
 export function hero(compact) {
-  const gid = id("grad");
+  const gid = "brand";
+  const description = `ARAMETRIC — Creative & Technology Studio. ${INFO.map(([k, v]) => `${k}: ${v}`).join(". ")}. ${MOTTO}`;
+  const title = "ARAMETRIC — ahmet@arametric";
   if (compact) {
+    const width = 400;
     const art = portrait(4, 2);
-    const lines = INFO.filter(([k]) => ["Role", "Focus", "Products", "Website"].includes(k));
-    return svg("whyahmetss@github", `Founder and builder. ${INFO.map(([k, v]) => `${k}: ${v}`).join(". ")}.`, 470, `
-    ${chrome(400)}
-    <g class="mono">${art.map((l, i) => text(40, 72 + i * 13, l, 12, "mono art ln", `xml:space="preserve" ${reveal(i, .1, .04)}`)).join("")}</g>
-    ${text(28, 238, "whyahmetss@github", 15, "mono w7 ln", `style="fill:url(#${gid});animation-delay:.25s"`)}
-    <path class="s-a1 ln" d="M28 247.5H190" ${reveal(0)}/>
-    ${lines.map(([k, v], i) => `<text x="28" y="${274 + i * 22}" font-size="12" class="mono ln" ${reveal(i + 1)}><tspan class="key">${escapeXml(k)}:</tspan><tspan class="soft"> ${escapeXml(v)}</tspan></text>`).join("")}
-    ${BLOCKS.map((c, i) => `<rect x="${28 + i * 22}" y="372" width="18" height="12" rx="2" fill="${c}" class="ln" ${reveal(6)}/>`).join("")}
-    ${text(28, 416, "└─$ build --for tomorrow", 12, "mono soft ln", reveal(7))}
-    <rect class="cur" x="${28 + 24 * 7.25}" y="405" width="7" height="14"/>
-  `, { width: 400, defs: gradient(gid), css: TERMINAL_CSS, glow: { cx: "20%", cy: "30%", r: "60%", opacity: .14 } });
+    const artLines = art.map((l, i) => text(width / 2, 70 + i * 12.5, l, 11.5, { fill: C.a1, mono: true, anchor: "middle", children: fadeIn(.05 + i * .03, .25) })).join("");
+    const term = terminal({ x: 26, y: 228, size: 12, lead: 21, maxChars: 48, gid, titleSize: 19 });
+    const height = Math.round(term.bottom + 28);
+    return svg(title, description, width, height, `
+    ${chrome(width, "ahmet@arametric: ~ — zsh")}
+    <g>${artLines}</g>
+    ${term.svg}
+  `, { defs: gradient(gid) + term.defs, glow: { cx: "50%", cy: "22%", r: "60%", opacity: .14 } });
   }
   const art = portrait(6, 3);
-  return svg("whyahmetss@github", `Founder and builder. ${INFO.map(([k, v]) => `${k}: ${v}`).join(". ")}.`, 420, `
-    ${chrome(800)}
-    <g>${art.map((l, i) => text(36, 82 + i * 18.5, l, 15, "mono art ln", `xml:space="preserve" ${reveal(i, .1, .035)}`)).join("")}</g>
-    <path class="line" d="M344.5 60V392"/>
-    ${text(372, 84, "whyahmetss", 17, "mono w7 ln", `style="fill:url(#${gid});animation-delay:.25s"`)}
-    ${text(372 + 10 * 10.3, 84, "@github", 17, "mono muted w7 ln", reveal(0))}
-    <path class="s-a1 ln" d="M372 96.5H640" ${reveal(0)}/>
-    ${INFO.map(([k, v], i) => `<text x="372" y="${126 + i * 24}" font-size="13.5" class="mono ln" ${reveal(i + 1)}><tspan class="key">${escapeXml(k)}:</tspan><tspan class="soft"> ${escapeXml(v)}</tspan></text>`).join("")}
-    ${BLOCKS.map((c, i) => `<rect x="${372 + i * 26}" y="${126 + INFO.length * 24 - 2}" width="22" height="14" rx="3" fill="${c}" class="ln" ${reveal(INFO.length + 1)}/>`).join("")}
-    ${text(372, 386, "┌──(whyahmetss@every)-[~]", 12.5, "mono muted ln", reveal(INFO.length + 2))}
-    ${text(372, 404, "└─$ build --for tomorrow", 12.5, "mono soft ln", reveal(INFO.length + 3))}
-    <rect class="cur" x="${372 + 24 * 7.55}" y="393" width="8" height="15"/>
-  `, { width: 800, defs: gradient(gid), css: TERMINAL_CSS, glow: { cx: "18%", cy: "45%", r: "55%", opacity: .16 } });
+  const artLines = art.map((l, i) => text(40, 92 + i * 17, l, 12.5, { fill: C.a1, mono: true, children: fadeIn(.05 + i * .03, .25) })).join("");
+  const term = terminal({ x: 318, y: 84, size: 13.5, lead: 24, maxChars: 54, gid, titleSize: 22 });
+  const height = Math.round(term.bottom + 32);
+  return svg(title, description, W, height, `
+    ${chrome(W, "ahmet@arametric: ~ — zsh")}
+    <g>${artLines}</g>
+    <path d="M292.5 60V${height - 26}" stroke="${C.line}"/>
+    ${term.svg}
+  `, { defs: gradient(gid) + term.defs, glow: { cx: "16%", cy: "45%", r: "55%", opacity: .16 } });
 }
 
-function siragoArt(x, y, gid) {
-  // A small appointment board: time column + slots, one booked with the accent gradient.
-  const times = ["09:00", "10:30", "12:00", "14:30"];
-  const rows = times.map((t, i) => {
-    const ry = y + 14 + i * 34;
-    const booked = i === 1;
-    return `${text(x, ry + 17, t, 11, "mono muted")}
-      ${rect(x + 46, ry, 158, 26, booked ? "" : "raise", `rx="7"${booked ? ` fill="url(#${gid})"` : ""}`)}
-      ${booked ? "" : rect(x + 46.5, ry + .5, 157, 25, "edge", 'rx="6.5"')}
-      ${booked ? text(x + 58, ry + 17.5, "Booked · confirmed", 11, "w6", 'fill="#0B0D12"') : rect(x + 58, ry + 11, 46 + (i * 17) % 40, 4, "edge", 'rx="2"')}`;
+// ── Products ────────────────────────────────────────────────────────────────────────────────────────
+
+const PRODUCTS = {
+  sirago: {
+    name: "SıraGO",
+    status: "LIVE", color: C.a1, half: false,
+    tagline: "WhatsApp'tan yapay zekâ ile 7/24 randevu",
+    features: ["TR / EN / AR yapay zekâ asistan", "Google Takvim senkronu", "Sesli mesajla randevu"],
+    link: "sırago.com", cta: "Ziyaret et",
+  },
+  engine: {
+    name: "Creative Engine",
+    status: "IN DEVELOPMENT", color: C.a2, half: true,
+    tagline: "Brief'ten yayına video prodüksiyon motoru",
+    features: ["HyperFrames + FFmpeg render", "AI storyboard", "Otomatik kalite kontrol"],
+    link: "arametric", cta: "Yakında",
+  },
+};
+
+function siragoGlyph(x, y, color) {
+  // A chat bubble that turns into a confirmed slot.
+  return `<g>
+      ${rect(x, y, 66, 30, C.raise, { rx: 9 })}
+      ${rect(x + .5, y + .5, 65, 29, "none", { rx: 8.5, stroke: C.edge })}
+      <path d="M${x + 12} ${y + 30}l-4 8l11-8z" fill="${C.raise}"/>
+      ${rect(x + 10, y + 9, 34, 4, C.edge, { rx: 2 })}${rect(x + 10, y + 17, 22, 4, C.edge, { rx: 2 })}
+      <circle cx="${x + 54}" cy="${y + 15}" r="7" fill="${color}"/>
+      <path d="M${x + 50.5} ${y + 15}l2.5 2.5l4.5-5" fill="none" stroke="${C.ground}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>`;
+}
+
+function engineGlyph(x, y, color) {
+  // A tiny edit timeline with a travelling playhead.
+  const tracks = [[[0, 26], [29, 22], [54, 18]], [[8, 34, true], [45, 27]], [[0, 16], [19, 53]]];
+  const clips = tracks.map((row, t) => row.map(([cx, w, hot]) =>
+    rect(x + cx, y + 4 + t * 12, w, 8, hot ? color : C.raise, { rx: 2.5, stroke: hot ? undefined : C.edge, "stroke-width": hot ? undefined : 1 })).join("")).join("");
+  return `<g>${clips}
+      <g>
+        <path d="M${x + 38}.5 ${y}V${y + 42}" stroke="${color}" stroke-width="1.4"/>
+        <path d="M${x + 34.5} ${y - 2}h7l-3.5 4z" fill="${color}"/>
+        <animateTransform attributeName="transform" type="translate" values="-30 0;30 0;-30 0" dur="6s" repeatCount="indefinite"/>
+      </g>
+    </g>`;
+}
+
+export function product(kind) {
+  const p = PRODUCTS[kind];
+  const width = 400, height = 300;
+  const gid = "accent";
+  const status = badge(28, 28, p.status, p.color, p.half);
+  const features = p.features.map((f, i) => {
+    const fy = 186 + i * 24;
+    return `${rect(28, fy - 9, 8, 8, p.color, { rx: 2, opacity: .9 })}
+      ${text(46, fy, f, 14, { fill: C.soft })}`;
+  }).join("\n      ");
+  const glyph = kind === "sirago" ? siragoGlyph(306, 26, p.color) : engineGlyph(298, 34, p.color);
+  const ctaY = 277;
+  const cta = kind === "sirago"
+    ? `${text(28, ctaY, p.link, 13.5, { fill: p.color, weight: 700, mono: true })}
+      ${text(width - 28, ctaY, `${p.cta} →`, 13, { fill: C.ink, weight: 600, anchor: "end" })}`
+    : `${text(28, ctaY, "Arametric · iç altyapı", 13, { fill: C.muted, mono: true })}
+      ${text(width - 28, ctaY, `${p.cta} →`, 13, { fill: C.soft, weight: 600, anchor: "end" })}`;
+  return svg(p.name, `${p.name} — ${p.tagline}. ${p.features.join(" · ")}. Durum: ${p.status}.`, width, height, `
+    ${status.svg}
+    ${glyph}
+    ${text(28, 106, p.name, p.name.length > 8 ? 30 : 34, { weight: 800, ls: -.6 })}
+    ${text(28, 134, p.tagline, 14.5, { fill: C.soft })}
+    <path d="M28 160.5H${width - 28}" stroke="${C.line}"/>
+    ${features}
+    <path d="M28 250.5H${width - 28}" stroke="${C.line}"/>
+    ${cta}
+    ${rect(0, height - 3, width, 3, `url(#${gid})`, { "clip-path": "url(#edge)" })}
+  `, {
+    defs: `${gradient(gid, p.color, kind === "sirago" ? C.a2 : C.a1)}<clipPath id="edge"><rect width="${width}" height="${height}" rx="14"/></clipPath>`,
+    glow: { cx: "88%", cy: "8%", r: "70%", opacity: .14, color: p.color },
+  });
+}
+
+// ── Studio strip ────────────────────────────────────────────────────────────────────────────────────
+
+export function studio() {
+  const height = 124;
+  const gid = "brand";
+  const frames = [0, 1, 2].map(i => {
+    const fx = 40 + i * 22, fy = 34 + (i === 1 ? -6 : 0);
+    return `${rect(fx, fy, 30, 50, i === 1 ? `url(#${gid})` : C.raise, { rx: 6, stroke: i === 1 ? undefined : C.edge })}`;
   }).join("");
-  return rows;
+  const play = `<path d="M${40 + 22 + 11} ${28 + 18}l10 7l-10 7z" fill="${C.ground}"/>`;
+  return svg("ARAMETRIC STUDIO", "ARAMETRIC STUDIO — Kısa video · Reels · Marka içerikleri. Kreatif prodüksiyon ve dijital pazarlama. Portfolyo.", W, height, `
+    ${frames}${play}
+    ${text(132, 44, "ARAMETRIC STUDIO", 12, { fill: `url(#${gid})`, weight: 800, mono: true, ls: 2.5 })}
+    ${text(132, 76, "Kısa video · Reels · Marka içerikleri", 22, { weight: 800, ls: -.4 })}
+    ${text(132, 100, "Kreatif prodüksiyon ve dijital pazarlama", 13.5, { fill: C.muted })}
+    ${rect(R - 132, 44, 132, 36, C.a1, { rx: 18, "fill-opacity": ".1", stroke: C.a1, "stroke-opacity": ".6" })}
+    ${text(R - 66, 67, "Portfolyo →", 14, { fill: C.a1, weight: 700, anchor: "middle" })}
+  `, { defs: gradient(gid, C.a1, C.a2, "1", "1"), glow: { cx: "8%", cy: "50%", r: "45%", opacity: .14 } });
 }
 
-function engineArt(x, y, gid) {
-  // A miniature edit timeline: three tracks, clips, and a playhead.
-  const tracks = [[[0, 70], [76, 60], [140, 58]], [[18, 96, true], [120, 70]], [[0, 44], [50, 140]]];
-  const clips = tracks.map((clips, t) => clips.map(([cx, w, hot]) =>
-    rect(x + cx, y + 20 + t * 34, w, 24, hot ? "" : "raise", `rx="6"${hot ? ` fill="url(#${gid})"` : ""}`) +
-    (hot ? "" : rect(x + cx + .5, y + 20.5 + t * 34, w - 1, 23, "edge", 'rx="5.5"'))).join("")).join("");
-  const ticks = Array.from({ length: 11 }, (_, i) => `<path class="edge" d="M${x + i * 20}.5 ${y + 4}V${y + (i % 5 ? 9 : 12)}"/>`).join("");
-  return `${ticks}${clips}
-      <path class="s-a1" stroke-width="1.5" d="M${x + 112}.5 ${y + 2}V${y + 132}"/>
-      <path class="a1" d="M${x + 106} ${y}h13l-6.5 7z"/>`;
-}
-
-export function product(creative) {
-  const gid = id("grad");
-  const name = creative ? "Creative Engine" : "SıraGo";
-  const status = creative ? ["In development", "warn"] : ["Open for sign-up", "ok"];
-  const lines = creative
-    ? ["AI-assisted video production", "infrastructure for brands."]
-    : ["Appointments and automation", "for service businesses."];
-  const link = creative ? "Private beta" : "sırago.com  →";
-  const statusPill = pill(36, 34, status[0], { dot: status[1] });
-  return svg(name, `${name}: ${lines.join(" ")} Status: ${status[0]}.`, 210, `
-    ${statusPill.svg}
-    ${text(36, 104, name, 32, "w7", 'letter-spacing="-.8"')}
-    ${text(36, 134, lines[0], 15, "soft")}
-    ${text(36, 156, lines[1], 15, "soft")}
-    ${text(36, 186, link, 13, creative ? "mono muted" : "w6", creative ? "" : `fill="url(#${gid})"`)}
-    ${rect(372, 14, 254, 182, "panel", 'rx="10"')}
-    ${rect(372.5, 14.5, 253, 181, "line", 'rx="9.5"')}
-    ${creative ? engineArt(392, 30, gid) : siragoArt(392, 22, gid)}
-  `, { defs: gradient(gid), glow: { cx: creative ? "95%" : "90%", cy: "50%", r: "55%", opacity: .16 } });
-}
-
-const STACK = [
-  ["JavaScript", "#F7DF1E"], ["TypeScript", "#3178C6"], ["Python", "#4B8BBE"],
-  ["React", "#61DAFB"], ["Node.js", "#5FA04E"], ["PostgreSQL", "#4169E1"],
-];
-
-export function technology() {
-  const cells = STACK.map(([label, color], i) => {
-    const col = i % 3, row = Math.floor(i / 3);
-    const x = 36 + col * 192, y = 62 + row * 50;
-    return `${rect(x, y, 180, 40, "panel", 'rx="9"')}
-      ${rect(x + .5, y + .5, 179, 39, "line", 'rx="8.5"')}
-      <circle cx="${x + 20}" cy="${y + 20}" r="5" fill="${color}"/>
-      ${text(x + 36, y + 25, label, 14, "w6")}`;
-  }).join("");
-  return svg("Technology stack", `Selected technologies: ${STACK.map(([l]) => l).join(", ")}.`, 192, `
-    ${text(36, 40, "STACK", 11, "caps muted")}
-    ${text(604, 40, "tools I ship with", 12, "mono muted", 'text-anchor="end"')}
-    ${cells}
-  `);
-}
+// ── Footer ──────────────────────────────────────────────────────────────────────────────────────────
 
 export function footer() {
-  const gid = id("grad");
-  return svg("EVERY", "Build for tomorrow.", 72, `
-    ${mark(36, 26, 20, `url(#${gid})`)}
-    ${text(66, 42, "EVERY", 14, "w7", 'letter-spacing="3"')}
-    ${text(604, 42, "Build for tomorrow.", 14, "muted w5", 'text-anchor="end"')}
-  `, { defs: gradient(gid) });
+  const gid = "brand";
+  return svg("ARAMETRIC", MOTTO, W, 84, `
+    ${mark(L, 30, 24, `url(#${gid})`)}
+    ${text(L + 36, 48, "ARAMETRIC", 15, { weight: 800, mono: true, ls: 3 })}
+    ${text(L + 36 + 9 * 12.2, 48, "· Creative &amp; Technology Studio", 12, { fill: C.muted, mono: true, raw: true })}
+    ${text(R, 49, MOTTO, 17, { fill: C.ink, weight: 700, anchor: "end", ls: -.2 })}
+  `, { defs: gradient(gid), glow: { cx: "96%", cy: "50%", r: "40%", opacity: .12 } });
 }
+
+// ── Analytics (real GitHub data only) ───────────────────────────────────────────────────────────────
 
 const RANGE_DATE = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
 const MONTH = new Intl.DateTimeFormat("en-US", { month: "short", timeZone: "UTC" });
 const OPACITY = [0, .28, .5, .75, 1];
+const caps = (x, y, label) => text(x, y, label, 11, { fill: C.muted, weight: 700, ls: 1.6 });
 
 export function contributions(days) {
   const total = days.reduce((sum, day) => sum + day.count, 0);
   const active = days.filter(day => day.count > 0).length;
   const range = `${RANGE_DATE.format(new Date(days[0].date))} – ${RANGE_DATE.format(new Date(days.at(-1).date))}`;
   const start = new Date(days[0].date).getUTCDay();
-  const cell = 9, gap = 1.6, step = cell + gap;
+  const cell = 10.6, gap = 2, step = cell + gap;
   const weeks = Math.ceil((days.length + start) / 7);
   const gridW = weeks * step - gap;
-  const x0 = Math.round((WIDTH - gridW) / 2), y0 = 106;
-  const gid = id("grad");
+  const x0 = Math.round((W - gridW) / 2), y0 = 112;
+  const gid = "accent";
   const months = [];
   const cells = days.map((day, i) => {
     const k = i + start, w = Math.floor(k / 7), d = k % 7;
-    const x = (x0 + w * step).toFixed(1), y = (y0 + d * step).toFixed(1);
+    const x = x0 + w * step, y = y0 + d * step;
     if (day.date.endsWith("-01") || i === 0) {
-      const mx = x0 + w * step;
-      if (!months.length || mx - months.at(-1)[0] > 36) months.push([mx, MONTH.format(new Date(day.date))]);
+      const label = [x, MONTH.format(new Date(day.date))];
+      // A partial first month yields to the first full month when their labels would collide.
+      if (!months.length || x - months.at(-1)[0] > 40) months.push(label);
+      else if (months.length === 1 && i > 0) months[0] = label;
     }
     return day.level
-      ? rect(x, y, cell, cell, "", `rx="2" fill="url(#${gid})" fill-opacity="${OPACITY[day.level]}"`)
-      : rect(x, y, cell, cell, "panel", 'rx="2"');
+      ? rect(x, y, cell, cell, `url(#${gid})`, { rx: 2.4, "fill-opacity": OPACITY[day.level] })
+      : rect(x, y, cell, cell, C.panel, { rx: 2.4 });
   });
-  return svg("Contribution activity", `${NUMBER.format(total)} public contributions on ${active} active days, ${range}.`, 222, `
-    ${text(36, 46, NUMBER.format(total), 30, "w7", 'letter-spacing="-.6"')}
-    ${text(36, 68, "contributions in the last year", 13, "soft")}
-    ${text(604, 44, `${active} active days`, 12, "mono muted", 'text-anchor="end"')}
-    ${months.map(([x, label]) => text(x, 98, label, 10, "muted")).join("")}
+  const legendY = y0 + 7 * step + 22;
+  const lx = R - 36 - 5 * 15;
+  const legend = OPACITY.map((o, i) => o
+    ? rect(lx + i * 15, legendY - 10, 11, 11, `url(#${gid})`, { rx: 2.4, "fill-opacity": o })
+    : rect(lx + i * 15, legendY - 10, 11, 11, C.panel, { rx: 2.4 })).join("");
+  return svg("Contribution activity", `${NUMBER.format(total)} public contributions on ${active} active days, ${range}.`, W, legendY + 24, `
+    ${caps(L, 36, "CONTRIBUTIONS")}
+    ${text(L, 72, `${tspan(NUMBER.format(total), C.ink, { "font-size": 32, "font-weight": 800, "letter-spacing": -.6 })}${tspan("in the last year", C.soft, { "font-size": 13.5, dx: 10 })}`, 13.5, { raw: true })}
+    ${text(R, 72, `${active} active days`, 12.5, { fill: C.muted, mono: true, anchor: "end" })}
+    ${months.map(([x, label]) => text(x, y0 - 8, label, 10.5, { fill: C.muted })).join("")}
     <g>${cells.join("")}</g>
-    ${text(36, 204, range, 11, "mono muted")}
-    ${text(604 - 5 * 13 - 8, 204, "Less", 11, "muted", 'text-anchor="end"')}
-    ${OPACITY.map((o, i) => o
-      ? rect(604 - (5 - i) * 13, 195, 9, 9, "", `rx="2" fill="url(#${gid})" fill-opacity="${o}"`)
-      : rect(604 - (5 - i) * 13, 195, 9, 9, "panel", 'rx="2"')).join("")}
-  `, { defs: gradient(gid, "1", "1") });
+    ${text(L, legendY, range, 11, { fill: C.muted, mono: true })}
+    ${text(lx - 8, legendY, "Less", 11, { fill: C.muted, anchor: "end" })}
+    ${text(R, legendY, "More", 11, { fill: C.muted, anchor: "end" })}
+    ${legend}
+  `, { defs: gradient(gid, C.a1, C.a2, "1", "1") });
 }
 
 export function repositories(data) {
@@ -323,31 +432,31 @@ export function repositories(data) {
   const leading = data.languages.slice(0, 5);
   const rest = total - leading.reduce((sum, [, bytes]) => sum + bytes, 0);
   const rows = rest > 0 ? [...leading, ["Other", rest]] : leading;
-  const palette = ["var(--a1)", "var(--a2)", "#3DDC97", "#F5B54A", "#F472B6", "#80858E"];
-  const fallback = ["#4ADE80", "#2DD4BF", "#3DDC97", "#F5B54A", "#F472B6", "#80858E"];
-  const fmt = v => v < .1 ? "<0.1%" : `${v.toFixed(1)}%`;
-  const barW = 568;
-  let bx = 36;
+  const palette = [C.a1, C.a2, "#60A5FA", C.warn, "#F472B6", C.muted];
+  const pct = v => v < .1 ? "<0.1%" : `${v.toFixed(1)}%`;
+  const barW = R - L;
+  let bx = L;
   const segments = rows.map(([, bytes], i) => {
     const w = total ? Math.max(2, barW * bytes / total) : 0;
-    const out = `<rect x="${bx.toFixed(2)}" y="78" width="${Math.max(0, w - 2).toFixed(2)}" height="10" rx="3" style="fill:${fallback[i]};fill:${palette[i]}"/>`;
+    const out = rect(bx, 70, Math.max(0, w - 2), 10, palette[i], { rx: 3 });
     bx += w;
     return out;
   }).join("");
+  const colW = barW / 3;
   const legend = rows.map(([label, bytes], i) => {
     const col = i % 3, row = Math.floor(i / 3);
-    const x = 36 + col * 192, y = 124 + row * 28;
-    const name = label.length > 14 ? `${label.slice(0, 13)}…` : label;
-    return `<circle cx="${x + 5}" cy="${y - 4}" r="4.5" style="fill:${fallback[i]};fill:${palette[i]}"/>
-      ${text(x + 18, y, name, 13, "w6")}
-      ${text(x + 170, y, fmt(bytes / total * 100), 12, "mono muted", 'text-anchor="end"')}`;
+    const x = L + col * colW, y = 118 + row * 30;
+    const name = label.length > 16 ? `${label.slice(0, 15)}…` : label;
+    return `<circle cx="${fmt(x + 5)}" cy="${y - 4.5}" r="4.5" fill="${palette[i]}"/>
+      ${text(x + 18, y, name, 13.5, { weight: 600 })}
+      ${text(col === 2 ? R : x + colW - 32, y, pct(bytes / total * 100), 12.5, { fill: C.muted, mono: true, anchor: "end" })}`;
   }).join("");
-  const height = 124 + Math.ceil(rows.length / 3) * 28 + 6;
+  const height = 118 + Math.ceil(rows.length / 3) * 30 + 2;
   const meta = `${data.repositories} public ${data.repositories === 1 ? "repository" : "repositories"}`;
-  return svg("Languages", `${meta}. ${rows.map(([l, b]) => `${l} ${fmt(b / total * 100)}`).join(", ")}.`, height, `
-    ${text(36, 44, "LANGUAGES", 11, "caps muted")}
-    ${text(604, 44, meta, 12, "mono muted", 'text-anchor="end"')}
-    ${rect(36, 78, barW, 10, "panel", 'rx="3"')}
+  return svg("Languages", `${meta}. ${rows.map(([l, b]) => `${l} ${pct(b / total * 100)}`).join(", ")}.`, W, height, `
+    ${caps(L, 42, "LANGUAGES")}
+    ${text(R, 42, meta, 12.5, { fill: C.muted, mono: true, anchor: "end" })}
+    ${rect(L, 70, barW, 10, C.panel, { rx: 3 })}
     ${segments}
     ${legend}
   `);
@@ -362,9 +471,9 @@ export function development(days) {
   }
   const complete = weeks.filter(w => w.days === 7).slice(-12);
   const max = Math.max(1, ...complete.map(w => w.count));
-  const top = 78, base = 176, left = 36, right = 604;
-  const stepX = (right - left) / Math.max(1, complete.length - 1);
-  const pts = complete.map((w, i) => [left + i * stepX, base - (base - top) * w.count / max]);
+  const top = 80, base = 178;
+  const stepX = (R - L) / Math.max(1, complete.length - 1);
+  const pts = complete.map((w, i) => [L + i * stepX, base - (base - top) * w.count / max]);
   const total = complete.reduce((s, w) => s + w.count, 0);
   const end = new Date(Date.parse(complete.at(-1).date) + 6 * 86_400_000);
   const range = `${RANGE_DATE.format(new Date(complete[0].date))} – ${RANGE_DATE.format(end)}`;
@@ -375,20 +484,20 @@ export function development(days) {
     const c1 = [x1 + (x - x0) / 6, Math.min(base, y1 + (y - y0) / 6)], c2 = [x - (x3 - x1) / 6, Math.min(base, y - (y3 - y1) / 6)];
     return `C${c1[0].toFixed(1)} ${c1[1].toFixed(1)} ${c2[0].toFixed(1)} ${c2[1].toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)}`;
   }).join("");
-  const gid = id("grad"), fid = id("fill");
+  const gid = "accent", fid = "area";
   const peak = pts.reduce((a, p) => (p[1] < a[1] ? p : a), pts[0]);
-  return svg("Development activity", `${NUMBER.format(total)} public contributions over the last 12 complete weeks (${range}). Weekly: ${complete.map(w => w.count).join(", ")}.`, 224, `
-    ${text(36, 44, "LAST 12 WEEKS", 11, "caps muted")}
-    ${text(604, 46, NUMBER.format(total), 22, "w7", `text-anchor="end" fill="url(#${gid})"`)}
-    ${text(604, 66, "contributions", 12, "muted", 'text-anchor="end"')}
-    ${[top, (top + base) / 2, base].map(y => `<path class="line" stroke-dasharray="2 4" d="M${left} ${y}.5H${right}"/>`).join("")}
-    <path d="${path}L${right} ${base}L${left} ${base}Z" fill="url(#${fid})"/>
+  return svg("Development activity", `${NUMBER.format(total)} public contributions over the last 12 complete weeks (${range}). Weekly: ${complete.map(w => w.count).join(", ")}.`, W, 222, `
+    ${caps(L, 42, "LAST 12 WEEKS")}
+    ${text(R, 46, NUMBER.format(total), 24, { weight: 800, anchor: "end", fill: `url(#${gid})` })}
+    ${text(R, 66, "contributions", 12, { fill: C.muted, anchor: "end" })}
+    ${[top, (top + base) / 2, base].map(y => `<path d="M${L} ${y}.5H${R}" stroke="${C.line}" stroke-dasharray="2 4"/>`).join("")}
+    <path d="${path}L${R} ${base}L${L} ${base}Z" fill="url(#${fid})"/>
     <path d="${path}" fill="none" stroke="url(#${gid})" stroke-width="2.2" stroke-linecap="round"/>
-    <circle cx="${peak[0].toFixed(1)}" cy="${peak[1].toFixed(1)}" r="4" fill="url(#${gid})"/>
-    <circle cx="${peak[0].toFixed(1)}" cy="${peak[1].toFixed(1)}" r="9" fill="url(#${gid})" fill-opacity=".18"/>
-    ${text(36, 204, range, 11, "mono muted")}
+    <circle cx="${peak[0].toFixed(1)}" cy="${peak[1].toFixed(1)}" r="9" fill="${C.a1}" fill-opacity=".18"/>
+    <circle cx="${peak[0].toFixed(1)}" cy="${peak[1].toFixed(1)}" r="4" fill="${C.a1}"/>
+    ${text(L, 204, range, 11, { fill: C.muted, mono: true })}
   `, { defs: `${gradient(gid)}
     <linearGradient id="${fid}" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" class="g-a1" stop-opacity=".28"/><stop offset="1" class="g-a1" stop-opacity="0"/>
+      <stop offset="0" stop-color="${C.a1}" stop-opacity=".28"/><stop offset="1" stop-color="${C.a1}" stop-opacity="0"/>
     </linearGradient>` });
 }

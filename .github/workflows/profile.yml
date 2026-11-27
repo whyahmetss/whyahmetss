@@ -1,4 +1,4 @@
-name: EVERY profile assets
+name: ARAMETRIC profile assets
 
 on:
   pull_request:
@@ -21,7 +21,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: every-profile-${{ github.ref }}
+  group: arametric-profile-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -67,7 +67,7 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
-              commit -m 'chore: refresh EVERY analytics'
+              commit -m 'chore: refresh ARAMETRIC analytics'
           export GIT_CONFIG_COUNT=1
           export GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'
           export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$PROFILE_PUSH_TOKEN" | base64 -w0)"

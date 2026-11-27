@@ -7,7 +7,7 @@ async function request(url, accept, token) {
     headers: {
       Accept: accept,
       "Accept-Language": "en-US",
-      "User-Agent": "every-profile-generator",
+      "User-Agent": "arametric-profile-generator",
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
     redirect: "error",

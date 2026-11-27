@@ -1,68 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="210" viewBox="0 0 640 210" role="img" aria-labelledby="title description">
-  <title id="title">SıraGo</title>
-  <desc id="description">SıraGo: Appointments and automation for service businesses. Status: Open for sign-up.</desc>
-  <defs><radialGradient id="glow6" cx="90%" cy="50%" r="55%">
-      <stop offset="0" class="g-glow" stop-opacity="0.16"/>
-      <stop offset="1" class="g-glow" stop-opacity="0"/>
-    </radialGradient><linearGradient id="grad5" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" class="g-a1"/><stop offset="1" class="g-a2"/>
-    </linearGradient></defs>
-  <style>
-    svg { --ground:#08090B; --panel:#0F1114; --raise:#15181C; --ink:#F2F3F5; --soft:#C5C8CE; --muted:#80858E; --line:#1E2126; --edge:#2A2E34;
-          --a1:#4ADE80; --a2:#2DD4BF; --ok:#3DDC97; --warn:#F5B54A; }
-    @media (prefers-color-scheme: light) {
-      svg { --ground:#FFFFFF; --panel:#F7F8FA; --raise:#FFFFFF; --ink:#0B0D12; --soft:#2E333B; --muted:#646A74; --line:#E7E9ED; --edge:#D9DCE1;
-            --a1:#15803D; --a2:#0F766E; --ok:#12A66B; --warn:#C98512; }
-    }
-    text { font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; fill:#F2F3F5; fill:var(--ink); }
-    .mono { font-family:ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Consolas, 'Liberation Mono', monospace; }
-    .soft { fill:#C5C8CE; fill:var(--soft); }
-    .muted { fill:#80858E; fill:var(--muted); }
-    .ground { fill:#08090B; fill:var(--ground); }
-    .panel { fill:#0F1114; fill:var(--panel); }
-    .raise { fill:#15181C; fill:var(--raise); }
-    .line { fill:none; stroke:#1E2126; stroke:var(--line); }
-    .edge { fill:none; stroke:#2A2E34; stroke:var(--edge); }
-    .a1 { fill:#4ADE80; fill:var(--a1); }
-    .a2 { fill:#2DD4BF; fill:var(--a2); }
-    .s-a1 { fill:none; stroke:#4ADE80; stroke:var(--a1); }
-    .ok { fill:#3DDC97; fill:var(--ok); }
-    .warn { fill:#F5B54A; fill:var(--warn); }
-    .g-a1 { stop-color:#4ADE80; stop-color:var(--a1); }
-    .g-a2 { stop-color:#2DD4BF; stop-color:var(--a2); }
-    .g-glow { stop-color:#4ADE80; stop-color:var(--a1); }
-    .w5 { font-weight:500; } .w6 { font-weight:600; } .w7 { font-weight:700; }
-    .caps { letter-spacing:1.6px; font-weight:600; }
-
-  </style>
-  <rect class="ground" width="640" height="210" rx="14"/>
-  <rect width="640" height="210" rx="14" fill="url(#glow6)"/>
-  <rect class="edge" x=".5" y=".5" width="639" height="209" rx="13.5"/>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" role="img" aria-labelledby="title description">
+  <title id="title">SıraGO</title>
+  <desc id="description">SıraGO — WhatsApp&apos;tan yapay zekâ ile 7/24 randevu. TR / EN / AR yapay zekâ asistan · Google Takvim senkronu · Sesli mesajla randevu. Durum: LIVE.</desc>
+  <defs><radialGradient id="glow" cx="88%" cy="8%" r="70%">
+      <stop offset="0" stop-color="#4ADE80" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#4ADE80" stop-opacity="0"/>
+    </radialGradient><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4ADE80"/><stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient><clipPath id="edge"><rect width="400" height="300" rx="14"/></clipPath></defs>
+  <rect width="400" height="300" rx="14" fill="#08090B"/>
+  <rect width="400" height="300" rx="14" fill="url(#glow)"/>
+  <rect x=".5" y=".5" width="399" height="299" rx="13.5" fill="none" stroke="#2A2E34"/>
     <g>
-      <rect x="36" y="34" width="142" height="26" class="raise" rx="13"/>
-      <rect x="36.5" y="34.5" width="141" height="25" class="edge" rx="12.5"/>
-      <circle cx="50" cy="47" r="3.5" class="ok"/>
-      <text x="61" y="51.5" font-size="12" class="soft w5">Open for sign-up</text>
+      <rect x="28" y="28" width="65" height="26" fill="#4ADE80" rx="13" fill-opacity=".1"/>
+      <rect x="28.5" y="28.5" width="64" height="25" fill="none" rx="12.5" stroke="#4ADE80" stroke-opacity=".55"/>
+      <circle cx="43" cy="41" r="4" fill="#4ADE80" opacity=".35">
+        <animate attributeName="r" values="4;9.6;9.6" keyTimes="0;.6;1" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values=".45;0;0" keyTimes="0;.6;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="43" cy="41" r="4" fill="#4ADE80"/>
+      <text x="55" y="45.5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="11.5" fill="#4ADE80" font-weight="700" letter-spacing="1" xml:space="preserve">LIVE</text>
     </g>
-    <text x="36" y="104" font-size="32" class="w7" letter-spacing="-.8">SıraGo</text>
-    <text x="36" y="134" font-size="15" class="soft">Appointments and automation</text>
-    <text x="36" y="156" font-size="15" class="soft">for service businesses.</text>
-    <text x="36" y="186" font-size="13" class="w6" style="fill:url(#grad5)">sırago.com  →</text>
-    <rect x="372" y="14" width="254" height="182" class="panel" rx="10"/>
-    <rect x="372.5" y="14.5" width="253" height="181" class="line" rx="9.5"/>
-    <text x="392" y="53" font-size="11" class="mono muted">09:00</text>
-      <rect x="438" y="36" width="158" height="26" class="raise" rx="7"/>
-      <rect x="438.5" y="36.5" width="157" height="25" class="edge" rx="6.5"/>
-      <rect x="450" y="47" width="46" height="4" class="edge" rx="2"/><text x="392" y="87" font-size="11" class="mono muted">10:30</text>
-      <rect x="438" y="70" width="158" height="26" class="" rx="7" fill="url(#grad5)"/>
-
-      <text x="450" y="87.5" font-size="11" class="w6" style="fill:#0B0D12">Booked · confirmed</text><text x="392" y="121" font-size="11" class="mono muted">12:00</text>
-      <rect x="438" y="104" width="158" height="26" class="raise" rx="7"/>
-      <rect x="438.5" y="104.5" width="157" height="25" class="edge" rx="6.5"/>
-      <rect x="450" y="115" width="80" height="4" class="edge" rx="2"/><text x="392" y="155" font-size="11" class="mono muted">14:30</text>
-      <rect x="438" y="138" width="158" height="26" class="raise" rx="7"/>
-      <rect x="438.5" y="138.5" width="157" height="25" class="edge" rx="6.5"/>
-      <rect x="450" y="149" width="57" height="4" class="edge" rx="2"/>
-
+    <g>
+      <rect x="306" y="26" width="66" height="30" fill="#15181C" rx="9"/>
+      <rect x="306.5" y="26.5" width="65" height="29" fill="none" rx="8.5" stroke="#2A2E34"/>
+      <path d="M318 56l-4 8l11-8z" fill="#15181C"/>
+      <rect x="316" y="35" width="34" height="4" fill="#2A2E34" rx="2"/><rect x="316" y="43" width="22" height="4" fill="#2A2E34" rx="2"/>
+      <circle cx="360" cy="41" r="7" fill="#4ADE80"/>
+      <path d="M356.5 41l2.5 2.5l4.5-5" fill="none" stroke="#08090B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="28" y="106" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="34" fill="#F2F3F5" font-weight="800" letter-spacing="-0.6">SıraGO</text>
+    <text x="28" y="134" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="14.5" fill="#C5C8CE">WhatsApp&apos;tan yapay zekâ ile 7/24 randevu</text>
+    <path d="M28 160.5H372" stroke="#1E2126"/>
+    <rect x="28" y="177" width="8" height="8" fill="#4ADE80" rx="2" opacity="0.9"/>
+      <text x="46" y="186" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="14" fill="#C5C8CE">TR / EN / AR yapay zekâ asistan</text>
+      <rect x="28" y="201" width="8" height="8" fill="#4ADE80" rx="2" opacity="0.9"/>
+      <text x="46" y="210" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="14" fill="#C5C8CE">Google Takvim senkronu</text>
+      <rect x="28" y="225" width="8" height="8" fill="#4ADE80" rx="2" opacity="0.9"/>
+      <text x="46" y="234" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="14" fill="#C5C8CE">Sesli mesajla randevu</text>
+    <path d="M28 250.5H372" stroke="#1E2126"/>
+    <text x="28" y="277" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, &apos;DejaVu Sans Mono&apos;, &apos;Liberation Mono&apos;, monospace" font-size="13.5" fill="#4ADE80" font-weight="700" xml:space="preserve">sırago.com</text>
+      <text x="372" y="277" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, &apos;Helvetica Neue&apos;, Helvetica, Arial, sans-serif" font-size="13" fill="#F2F3F5" font-weight="600" text-anchor="end">Ziyaret et →</text>
+    <rect x="0" y="297" width="400" height="3" fill="url(#accent)" clip-path="url(#edge)"/>
 </svg>
