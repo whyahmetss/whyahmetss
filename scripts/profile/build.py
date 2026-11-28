@@ -425,7 +425,7 @@ def work_mobile(key):
     return svg(W, H, "\n".join(scene(W, H) + body), scene_defs(W, H, .8, .3, .06) + WORK_DEFS, f"ARAMETRIC — {d['title']}", rx=14)
 
 # ---------------------------------------------------------------- contact / end card
-CONTACT = [("Web", "arametric.studio"), ("Product", "sırago.com"), ("Instagram", "@arametric"), ("Based", "İstanbul, TR")]
+CONTACT = [("Web", "arametric.studio"), ("Product", "sırago.com"), ("Instagram", "@4hmeets"), ("Based", "İstanbul, TR")]
 
 def contact_desktop():
     W, H, L, R, BAR = 838, 300, 40, 798, 34
