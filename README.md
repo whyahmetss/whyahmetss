@@ -41,8 +41,8 @@
 <a href="https://arametric.studio">
   <picture>
     <source media="(max-width: 600px)" srcset="assets/profile/contact-mobile.svg">
-    <img src="assets/profile/contact.svg" width="100%" alt="Contact. Let's build something that lasts. Web: arametric.studio. Product: sırago.com. Instagram: @arametric. Based in İstanbul.">
+    <img src="assets/profile/contact.svg" width="100%" alt="Contact. Let's build something that lasts. Web: arametric.studio. Product: sırago.com. Instagram: @4hmeets. Based in İstanbul.">
   </picture>
 </a>
 
-<p align="center"><sub><a href="https://arametric.studio">arametric.studio</a> · <a href="https://xn--srago-n4a.com">sırago.com</a> · <a href="https://instagram.com/arametric">Instagram</a> · İstanbul</sub></p>
+<p align="center"><sub><a href="https://arametric.studio">arametric.studio</a> · <a href="https://xn--srago-n4a.com">sırago.com</a> · <a href="https://instagram.com/4hmeets">Instagram</a> · İstanbul</sub></p>
